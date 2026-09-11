@@ -5,7 +5,7 @@ const flow = ['Целевые обращения', 'Показы объекто�
 export function Results() {
   return (
     <section id="results" className="mx-auto max-w-[1400px] px-5 py-24 md:px-10 md:py-32">
-      <SectionLabel index="06">Результат</SectionLabel>
+      <SectionLabel index="05">Результат</SectionLabel>
 
       <h2 className="mt-8 max-w-3xl text-balance text-4xl font-medium leading-[1.05] tracking-tight sm:text-5xl md:text-6xl">
         Считаем не показы.

@@ -35,6 +35,13 @@ export function MarketingSystem() {
         Мы рассматриваем продвижение как единую систему. Реклама не работает отдельно от продукта,
         сайта, контента и отдела продаж.
       </p>
+
+      <a
+        href="/system"
+        className="mt-6 inline-flex items-center gap-2 text-sm font-medium text-foreground transition-opacity hover:opacity-70"
+      >
+        Подробнее о системе →
+      </a>
     </section>
   )
 }

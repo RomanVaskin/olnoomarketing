@@ -4,12 +4,11 @@ import { useState } from 'react'
 import { Logo } from './logo'
 
 const nav = [
-  { label: 'Услуги', href: '#services' },
-  { label: 'Система', href: '#system' },
-  { label: 'Digital', href: '#digital' },
-  { label: 'Процесс', href: '#process' },
-  { label: 'Проекты', href: '#projects' },
-  { label: 'Контакты', href: '#contact' },
+  { label: 'Услуги', href: '/#services' },
+  { label: 'Процесс', href: '/#process' },
+  { label: 'Проекты', href: '/#projects' },
+  { label: 'Система', href: '/system' },
+  { label: 'Контакты', href: '/#contact' },
 ]
 
 export function SiteHeader() {
@@ -18,7 +17,7 @@ export function SiteHeader() {
   return (
     <header className="fixed inset-x-0 top-0 z-50 border-b border-border/70 bg-background/80 backdrop-blur-md">
       <div className="mx-auto flex h-16 max-w-[1400px] items-center justify-between px-5 md:px-10">
-        <a href="#top" className="flex items-center" aria-label="OLNOO — на главную">
+        <a href="/#top" className="flex items-center" aria-label="OLNOO — на главную">
           <Logo height={20} />
         </a>
 
@@ -36,7 +35,7 @@ export function SiteHeader() {
 
         <div className="flex items-center gap-3">
           <a
-            href="#contact"
+            href="/#contact"
             className="hidden rounded-full border border-foreground/15 px-5 py-2 text-[13px] font-medium tracking-wide transition-colors hover:bg-foreground hover:text-background sm:inline-block"
           >
             Обсудить проект
@@ -72,7 +71,7 @@ export function SiteHeader() {
               </a>
             ))}
             <a
-              href="#contact"
+              href="/#contact"
               onClick={() => setOpen(false)}
               className="mt-4 rounded-full bg-foreground px-5 py-3 text-center text-sm font-medium text-background"
             >

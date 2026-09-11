@@ -12,7 +12,7 @@ export function Process() {
   return (
     <section id="process" className="border-t border-border bg-secondary/40">
       <div className="mx-auto max-w-[1400px] px-5 py-24 md:px-10 md:py-32">
-        <SectionLabel index="05">Процесс</SectionLabel>
+        <SectionLabel index="04">Процесс</SectionLabel>
         <h2 className="mt-6 max-w-3xl text-balance text-3xl font-medium leading-tight tracking-tight sm:text-4xl md:text-5xl">
           От анализа проекта до масштабирования продаж
         </h2>
