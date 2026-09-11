@@ -1,18 +1,21 @@
 import { SectionLabel } from './section-label'
+import { Reveal } from './reveal'
 
 const flow = ['Продукт', 'Упаковка', 'Сайт', 'Трафик', 'Лид', 'Продажа']
 
 export function MarketingSystem() {
   return (
     <section id="system" className="mx-auto max-w-[1400px] px-5 py-24 md:px-10 md:py-32">
-      <SectionLabel index="03">Система</SectionLabel>
+      <Reveal>
+        <SectionLabel index="03">Система</SectionLabel>
 
-      <h2 className="mt-8 max-w-4xl text-balance text-3xl font-medium leading-[1.08] tracking-tight sm:text-5xl md:text-6xl">
-        Маркетинг должен приводить не клики,{' '}
-        <span className="olnoo-gradient-text">а покупателей.</span>
-      </h2>
+        <h2 className="mt-8 max-w-4xl text-balance text-3xl font-medium leading-[1.08] tracking-tight sm:text-5xl md:text-6xl">
+          Маркетинг должен приводить не клики,{' '}
+          <span className="olnoo-gradient-text">а покупателей.</span>
+        </h2>
+      </Reveal>
 
-      <div className="mt-16 overflow-hidden rounded-lg border border-border">
+      <Reveal className="mt-16 overflow-hidden rounded-lg border border-border">
         <div className="flex flex-col divide-y divide-border md:flex-row md:divide-x md:divide-y-0">
           {flow.map((step, i) => (
             <div
@@ -29,7 +32,7 @@ export function MarketingSystem() {
           ))}
         </div>
         <div className="h-1 olnoo-gradient" aria-hidden="true" />
-      </div>
+      </Reveal>
 
       <p className="mt-10 max-w-2xl text-pretty text-base leading-relaxed text-muted-foreground md:text-lg">
         Мы рассматриваем продвижение как единую систему. Реклама не работает отдельно от продукта,

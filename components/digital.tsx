@@ -1,4 +1,5 @@
 import { SectionLabel } from './section-label'
+import { Reveal } from './reveal'
 
 const tools = [
   {
@@ -111,26 +112,30 @@ export function Digital() {
   return (
     <section id="digital" className="border-t border-border">
       <div className="mx-auto max-w-[1400px] px-5 py-24 md:px-10 md:py-32">
-        <SectionLabel index="01">Digital</SectionLabel>
-        <h2 className="mt-6 max-w-3xl text-balance text-3xl font-medium leading-tight tracking-tight sm:text-4xl md:text-5xl">
-          Цифровая инфраструктура продаж
-        </h2>
-        <p className="mt-6 max-w-2xl text-pretty text-base leading-relaxed text-muted-foreground md:text-lg">
-          Для загородной недвижимости сайт может делать значительно больше, чем просто показывать
-          фотографии проекта.
-        </p>
+        <Reveal>
+          <SectionLabel index="01">Digital</SectionLabel>
+          <h2 className="mt-6 max-w-3xl text-balance text-3xl font-medium leading-tight tracking-tight sm:text-4xl md:text-5xl">
+            Цифровая инфраструктура продаж
+          </h2>
+          <p className="mt-6 max-w-2xl text-pretty text-base leading-relaxed text-muted-foreground md:text-lg">
+            Для загородной недвижимости сайт может делать значительно больше, чем просто показывать
+            фотографии проекта.
+          </p>
+        </Reveal>
 
         <div className="mt-14 grid gap-px border border-border bg-border sm:grid-cols-2 lg:grid-cols-3">
-          {tools.map((t) => (
-            <div key={t.title} className="flex flex-col bg-background p-8 md:p-9">
-              <div className="flex h-24 items-center">
-                <div className="w-full max-w-[220px]">
-                  <Visual type={t.visual} />
+          {tools.map((t, i) => (
+            <Reveal key={t.title} index={i}>
+              <div className="flex flex-col bg-background p-8 md:p-9">
+                <div className="flex h-24 items-center">
+                  <div className="w-full max-w-[220px]">
+                    <Visual type={t.visual} />
+                  </div>
                 </div>
+                <h3 className="mt-6 text-lg font-medium tracking-tight">{t.title}</h3>
+                <p className="mt-3 text-sm leading-relaxed text-muted-foreground">{t.text}</p>
               </div>
-              <h3 className="mt-6 text-lg font-medium tracking-tight">{t.title}</h3>
-              <p className="mt-3 text-sm leading-relaxed text-muted-foreground">{t.text}</p>
-            </div>
+            </Reveal>
           ))}
         </div>
       </div>

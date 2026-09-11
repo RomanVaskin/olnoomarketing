@@ -1,6 +1,11 @@
+'use client'
+
 import Image from 'next/image'
+import { useParallax } from '@/lib/use-parallax'
 
 export function Hero() {
+  const parallaxRef = useParallax<HTMLDivElement>(0.08, 18)
+
   return (
     <section id="top" className="mx-auto max-w-[1400px] px-5 pt-28 md:px-10 md:pt-36">
       <div className="fade-up">
@@ -37,14 +42,16 @@ export function Hero() {
       </div>
 
       <div className="mt-12 overflow-hidden rounded-lg border border-border md:mt-16">
-        <Image
-          src="/hero-suburban.png"
-          alt="Аэрофотосъёмка современного коттеджного посёлка среди леса и озера"
-          width={1600}
-          height={900}
-          priority
-          className="h-[46vh] w-full object-cover md:h-[64vh]"
-        />
+        <div ref={parallaxRef}>
+          <Image
+            src="/hero-suburban.png"
+            alt="Аэрофотосъёмка современного коттеджного посёлка среди леса и озера"
+            width={1600}
+            height={900}
+            priority
+            className="h-[46vh] w-full scale-110 object-cover md:h-[64vh]"
+          />
+        </div>
       </div>
     </section>
   )
