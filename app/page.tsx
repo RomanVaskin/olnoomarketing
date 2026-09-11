@@ -3,7 +3,6 @@ import { Hero } from '@/components/hero'
 import { Audience } from '@/components/audience'
 import { Services } from '@/components/services'
 import { MarketingSystem } from '@/components/system'
-import { Digital } from '@/components/digital'
 import { Process } from '@/components/process'
 import { Results } from '@/components/results'
 import { Projects } from '@/components/projects'
@@ -19,7 +18,6 @@ export default function Page() {
         <Audience />
         <Services />
         <MarketingSystem />
-        <Digital />
         <Process />
         <Results />
         <Projects />
