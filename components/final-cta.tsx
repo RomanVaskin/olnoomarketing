@@ -1,10 +1,12 @@
 'use client'
 
+import { Reveal } from './reveal'
+
 export function FinalCta() {
   return (
     <section id="contact" className="border-t border-border">
       <div className="mx-auto max-w-[1400px] px-5 py-24 md:px-10 md:py-32">
-        <div className="grid gap-14 md:grid-cols-2 md:gap-20">
+        <Reveal className="grid gap-14 md:grid-cols-2 md:gap-20">
           <div>
             <p className="font-mono text-[11px] uppercase tracking-[0.24em] text-muted-foreground">
               Next step
@@ -63,7 +65,7 @@ export function FinalCta() {
               Отправить заявку
             </button>
           </form>
-        </div>
+        </Reveal>
       </div>
     </section>
   )

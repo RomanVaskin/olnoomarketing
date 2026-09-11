@@ -1,21 +1,24 @@
 import { SectionLabel } from './section-label'
+import { Reveal } from './reveal'
 
 const flow = ['Целевые обращения', 'Показы объектов', 'Бронирования', 'Сделки']
 
 export function Results() {
   return (
     <section id="results" className="mx-auto max-w-[1400px] px-5 py-24 md:px-10 md:py-32">
-      <SectionLabel index="06">Результат</SectionLabel>
+      <Reveal>
+        <SectionLabel index="06">Результат</SectionLabel>
 
-      <h2 className="mt-8 max-w-3xl text-balance text-4xl font-medium leading-[1.05] tracking-tight sm:text-5xl md:text-6xl">
-        Считаем не показы.
-        <br />
-        <span className="olnoo-gradient-text">Считаем движение к сделке.</span>
-      </h2>
+        <h2 className="mt-8 max-w-3xl text-balance text-4xl font-medium leading-[1.05] tracking-tight sm:text-5xl md:text-6xl">
+          Считаем не показы.
+          <br />
+          <span className="olnoo-gradient-text">Считаем движение к сделке.</span>
+        </h2>
+      </Reveal>
 
       <div className="mt-16 flex flex-col gap-3 md:flex-row md:items-stretch">
         {flow.map((step, i) => (
-          <div key={step} className="flex flex-1 items-center gap-3 md:flex-col md:items-stretch md:gap-0">
+          <Reveal key={step} index={i} className="flex flex-1 items-center gap-3 md:flex-col md:items-stretch md:gap-0">
             <div className="flex flex-1 items-center rounded-lg border border-border px-6 py-6 md:min-h-24">
               <span className="text-base font-medium md:text-lg">{step}</span>
             </div>
@@ -27,7 +30,7 @@ export function Results() {
                 ↓
               </span>
             )}
-          </div>
+          </Reveal>
         ))}
       </div>
 
