@@ -8,7 +8,7 @@ export function SiteFooter() {
           <div>
             <Logo height={22} />
             <p className="mt-6 text-sm text-muted-foreground">Маркетинг загородной недвижимости</p>
-            <p className="mt-1 font-mono text-sm text-foreground">marketing.olnoo.com</p>
+            <p className="mt-1 font-mono text-sm text-foreground">aureagency.ru</p>
           </div>
 
           <nav className="grid grid-cols-2 gap-x-6 gap-y-3 md:justify-end md:text-right">

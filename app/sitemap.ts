@@ -1,6 +1,6 @@
 import type { MetadataRoute } from 'next'
 
-const BASE_URL = 'https://marketing.olnoo.com'
+const BASE_URL = 'https://aureagency.ru'
 
 export default function sitemap(): MetadataRoute.Sitemap {
   const staticRoutes: MetadataRoute.Sitemap = [
