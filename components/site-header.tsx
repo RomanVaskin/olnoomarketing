@@ -5,7 +5,7 @@ import { Logo } from './logo'
 
 const nav = [
   { label: 'Услуги', href: '/#services' },
-  { label: 'Процесс', href: '/#process' },
+  { label: 'Процесс', href: '/process' },
   { label: 'Проекты', href: '/projects' },
   { label: 'Система', href: '/system' },
   { label: 'Контакты', href: '/contact' },
