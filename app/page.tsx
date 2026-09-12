@@ -5,8 +5,6 @@ import { Services } from '@/components/services'
 import { MarketingSystem } from '@/components/system'
 import { Process } from '@/components/process'
 import { Results } from '@/components/results'
-import { Projects } from '@/components/projects'
-import { FinalCta } from '@/components/final-cta'
 import { SiteFooter } from '@/components/site-footer'
 
 export default function Page() {
@@ -20,8 +18,6 @@ export default function Page() {
         <MarketingSystem />
         <Process />
         <Results />
-        <Projects />
-        <FinalCta />
       </main>
       <SiteFooter />
     </>

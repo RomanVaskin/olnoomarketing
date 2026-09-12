@@ -6,9 +6,9 @@ import { Logo } from './logo'
 const nav = [
   { label: 'Услуги', href: '/#services' },
   { label: 'Процесс', href: '/#process' },
-  { label: 'Проекты', href: '/#projects' },
+  { label: 'Проекты', href: '/projects' },
   { label: 'Система', href: '/system' },
-  { label: 'Контакты', href: '/#contact' },
+  { label: 'Контакты', href: '/contact' },
 ]
 
 export function SiteHeader() {
@@ -35,7 +35,7 @@ export function SiteHeader() {
 
         <div className="flex items-center gap-3">
           <a
-            href="/#contact"
+            href="/contact"
             className="hidden rounded-full border border-foreground/15 px-5 py-2 text-[13px] font-medium tracking-wide transition-colors hover:bg-foreground hover:text-background sm:inline-block"
           >
             Обсудить проект
@@ -71,7 +71,7 @@ export function SiteHeader() {
               </a>
             ))}
             <a
-              href="/#contact"
+              href="/contact"
               onClick={() => setOpen(false)}
               className="mt-4 rounded-full bg-foreground px-5 py-3 text-center text-sm font-medium text-background"
             >

@@ -15,10 +15,10 @@ export function SiteFooter() {
             <a href="/#services" className="text-sm text-muted-foreground transition-colors hover:text-foreground">
               Услуги
             </a>
-            <a href="/#projects" className="text-sm text-muted-foreground transition-colors hover:text-foreground">
+            <a href="/projects" className="text-sm text-muted-foreground transition-colors hover:text-foreground">
               Проекты
             </a>
-            <a href="/#contact" className="text-sm text-muted-foreground transition-colors hover:text-foreground">
+            <a href="/contact" className="text-sm text-muted-foreground transition-colors hover:text-foreground">
               Контакты
             </a>
             <a

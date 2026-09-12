@@ -26,7 +26,7 @@ export function Hero() {
           </p>
           <div className="flex flex-wrap items-center gap-3 md:justify-end">
             <a
-              href="#contact"
+              href="/contact"
               className="rounded-full bg-foreground px-6 py-3 text-sm font-medium text-background transition-opacity hover:opacity-90"
             >
               Обсудить проект
