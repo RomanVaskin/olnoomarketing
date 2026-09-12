@@ -113,7 +113,7 @@ export function Digital() {
     <section id="digital" className="border-t border-border">
       <div className="mx-auto max-w-[1400px] px-5 py-24 md:px-10 md:py-32">
         <Reveal>
-          <SectionLabel index="01">Digital</SectionLabel>
+          <SectionLabel>Digital</SectionLabel>
           <h2 className="mt-6 max-w-3xl text-balance text-3xl font-medium leading-tight tracking-tight sm:text-4xl md:text-5xl">
             Цифровая инфраструктура продаж
           </h2>
