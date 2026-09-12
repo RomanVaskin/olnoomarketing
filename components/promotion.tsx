@@ -4,33 +4,33 @@ import { Reveal } from './reveal'
 const services = [
   {
     n: '01',
-    title: 'Стратегия и упаковка',
-    text: 'Анализ проекта, рынка и конкурентов. Позиционирование, предложение и стратегия продвижения.',
+    title: 'SEO',
+    text: 'Поисковая структура, посадочные страницы, контент и системное развитие органического трафика.',
   },
   {
     n: '02',
-    title: 'Сайты и лендинги',
-    text: 'Современные сайты посёлков, домов и строительных компаний, ориентированные на обращения.',
+    title: 'Реклама',
+    text: 'Яндекс Директ, ретаргетинг и работа с целевой аудиторией.',
   },
   {
     n: '03',
-    title: 'Аналитика и автоматизация',
-    text: 'Отслеживание источников, заявок и движения клиента от первого визита до продажи.',
+    title: 'Контент',
+    text: 'Фото, видео, статьи, социальные сети и материалы, которые помогают покупателю принять решение.',
   },
 ]
 
-export function Services() {
+export function Promotion() {
   return (
-    <section id="services" className="border-t border-border bg-secondary/40">
+    <section id="promotion" className="border-t border-border bg-secondary/40">
       <div className="mx-auto max-w-[1400px] px-5 py-24 md:px-10 md:py-32">
         <Reveal>
-          <SectionLabel index="02">Практика</SectionLabel>
+          <SectionLabel index="02">Продвижение</SectionLabel>
           <h2 className="mt-6 max-w-3xl text-balance text-3xl font-medium leading-tight tracking-tight sm:text-4xl md:text-5xl">
-            От позиционирования до привлечения покупателей
+            Трафик, который приводит к сделке
           </h2>
         </Reveal>
 
-        <div className="mt-14 grid grid-cols-1 border-l border-t border-border sm:grid-cols-2 lg:grid-cols-3">
+        <div className="mt-14 grid grid-cols-1 border-l border-t border-border sm:grid-cols-3">
           {services.map((s, i) => (
             <Reveal key={s.n} index={i}>
               <div className="group border-b border-r border-border bg-background p-8 transition-colors hover:bg-secondary md:p-10">
