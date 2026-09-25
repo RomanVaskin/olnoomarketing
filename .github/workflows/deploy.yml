@@ -4,6 +4,7 @@ on:
   push:
     branches:
       - main
+  workflow_dispatch:
 
 jobs:
   deploy:
@@ -16,6 +17,7 @@ jobs:
           host: ${{ secrets.KZ_HOST }}
           username: ${{ secrets.KZ_USER }}
           key: ${{ secrets.KZ_SSH_KEY }}
+          command_timeout: 20m
           script: |
             set -e
 
@@ -25,6 +27,39 @@ jobs:
             git reset --hard origin/main
 
             npm install
-            npm run build
+
+            # Build into a separate dir so the running site keeps its assets
+            # if the build fails; swap it in only after a successful build.
+            rm -rf .next-new
+            NEXT_DIST_DIR=.next-new npm run build
+
+            rm -rf .next-old
+            if [ -d .next ]; then mv .next .next-old; fi
+            mv .next-new .next
 
             systemctl restart olnoomarketing
+            rm -rf .next-old
+
+      - name: Check site and static assets
+        run: |
+          set -e
+          site=https://aureagency.ru
+          for i in $(seq 1 12); do
+            code=$(curl -s -o page.html -w '%{http_code}' "$site/" || true)
+            [ "$code" = "200" ] && break
+            sleep 5
+          done
+          echo "GET / -> $code"
+          [ "$code" = "200" ]
+
+          fail=0
+          for path in $(grep -oE '(src|href)="/(_next/static|[A-Za-z0-9_-]+\.(png|svg|jpg))[^"]*"' page.html \
+                        | sed -E 's/.*="([^"]+)"/\1/' | sort -u); do
+            c=$(curl -s -o /dev/null -w '%{http_code}' "$site$path" || true)
+            echo "$c $path"
+            [ "$c" = "200" ] || fail=1
+          done
+          if [ "$fail" != "0" ]; then
+            echo "::error::Static assets are not served. Check the nginx config for /_next/ and the olnoomarketing service logs."
+            exit 1
+          fi
