@@ -33,7 +33,7 @@ export function Services() {
           {services.map((s, i) => (
             <Reveal key={s.title} index={i}>
               <div className="group border-b border-r border-border bg-background p-8 transition-colors hover:bg-secondary md:p-10">
-                <h3 className="text-xl font-medium tracking-tight md:text-[1.35rem]">{s.title}</h3>
+                <h3 className="text-xl font-mono font-light leading-snug tracking-[0.04em] text-[#161616] md:text-[1.35rem]">{s.title}</h3>
                 <p className="mt-4 text-sm leading-relaxed text-muted-foreground">{s.text}</p>
               </div>
             </Reveal>

@@ -20,8 +20,8 @@ export default function ProcessPage() {
             <p className="font-mono text-[11px] uppercase tracking-[0.24em] text-muted-foreground">
               AURE AGENCY / Процесс
             </p>
-            <h1 className="mt-6 max-w-4xl text-balance text-[2.6rem] font-medium leading-[1.02] tracking-tight sm:text-6xl md:text-7xl lg:text-[5.5rem]">
-              Как устроен <span className="aure-gradient-text">процесс продвижения</span>
+            <h1 className="mt-6 max-w-5xl font-mono text-balance text-[length:min(calc((100vw_-_2.5rem)/15.5),24px)] font-light leading-[1.25] tracking-[0.04em] text-[#161616] md:text-[length:min(calc((100vw_-_5rem)/16.5),34px)] md:tracking-[0.08em] lg:text-[length:clamp(34px,3.2vw,52px)] lg:tracking-[0.1em]">
+              Как устроен процесс продвижения
             </h1>
             <p className="mt-8 max-w-2xl text-pretty text-base leading-relaxed text-muted-foreground md:text-lg">
               Единый процесс, который мы проходим с каждым проектом — от анализа до измеримого

@@ -114,7 +114,7 @@ export function Digital() {
       <div className="mx-auto max-w-[1400px] px-5 py-24 md:px-10 md:py-32">
         <Reveal>
           <SectionLabel>Digital</SectionLabel>
-          <h2 className="mt-6 max-w-3xl text-balance text-3xl font-medium leading-tight tracking-tight sm:text-4xl md:text-5xl">
+          <h2 className="mt-6 max-w-5xl font-mono text-balance text-[length:min(calc((100vw_-_2.5rem)/15.5),24px)] font-light leading-[1.25] tracking-[0.04em] text-[#161616] md:text-[length:min(calc((100vw_-_5rem)/16.5),34px)] md:tracking-[0.08em] lg:text-[length:clamp(34px,3.2vw,52px)] lg:tracking-[0.1em]">
             Цифровая инфраструктура продаж
           </h2>
           <p className="mt-6 max-w-2xl text-pretty text-base leading-relaxed text-muted-foreground md:text-lg">
@@ -132,7 +132,7 @@ export function Digital() {
                     <Visual type={t.visual} />
                   </div>
                 </div>
-                <h3 className="mt-6 text-lg font-medium tracking-tight">{t.title}</h3>
+                <h3 className="mt-6 text-lg font-mono font-light leading-snug tracking-[0.04em] text-[#161616]">{t.title}</h3>
                 <p className="mt-3 text-sm leading-relaxed text-muted-foreground">{t.text}</p>
               </div>
             </Reveal>

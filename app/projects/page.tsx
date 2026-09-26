@@ -19,8 +19,8 @@ export default function ProjectsPage() {
             <p className="font-mono text-[11px] uppercase tracking-[0.24em] text-muted-foreground">
               AURE AGENCY / Проекты
             </p>
-            <h1 className="mt-6 max-w-4xl text-balance text-[2.6rem] font-medium leading-[1.02] tracking-tight sm:text-6xl md:text-7xl lg:text-[5.5rem]">
-              Проекты, которым мы <span className="aure-gradient-text">помогли расти</span>
+            <h1 className="mt-6 max-w-5xl font-mono text-balance text-[length:min(calc((100vw_-_2.5rem)/15.5),24px)] font-light leading-[1.25] tracking-[0.04em] text-[#161616] md:text-[length:min(calc((100vw_-_5rem)/16.5),34px)] md:tracking-[0.08em] lg:text-[length:clamp(34px,3.2vw,52px)] lg:tracking-[0.1em]">
+              Проекты, которым мы помогли расти
             </h1>
             <p className="mt-8 max-w-2xl text-pretty text-base leading-relaxed text-muted-foreground md:text-lg">
               Коттеджные посёлки, загородный девелопмент и продажа домов — примеры комплексного

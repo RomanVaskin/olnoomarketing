@@ -32,7 +32,7 @@ export function Audience() {
         {blocks.map((b, i) => (
           <Reveal key={b.title} index={i}>
             <div className="border-t border-border py-8 md:border-l md:border-t-0 md:py-0 md:pl-8 md:pr-6 first:md:border-l-0">
-              <h3 className="text-xl font-medium tracking-tight md:text-2xl">{b.title}</h3>
+              <h3 className="text-xl font-mono font-light leading-snug tracking-[0.04em] text-[#161616] md:text-2xl">{b.title}</h3>
               <p className="mt-3 max-w-xs text-sm leading-relaxed text-muted-foreground">{b.text}</p>
             </div>
           </Reveal>
