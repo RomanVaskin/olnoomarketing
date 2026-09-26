@@ -29,7 +29,7 @@ export function Hero() {
         </div>
 
         <div className="fade-up absolute inset-x-0 bottom-5 z-[3] mx-auto max-w-[1400px] px-5 md:bottom-[clamp(32px,5vh,64px)] md:px-10 lg:bottom-[clamp(45px,7vh,90px)]">
-          <h1 className="font-mono text-[length:min(calc((100vw_-_2.5rem)/15.5),24px)] font-light leading-[1.25] tracking-[0.04em] text-[#161616] min-[360px]:whitespace-nowrap md:text-[length:min(calc((100vw_-_5rem)/16.5),34px)] md:tracking-[0.08em] lg:text-[length:clamp(34px,3.2vw,52px)] lg:tracking-[0.1em]">
+          <h1 className="font-mono text-[length:min(calc((100vw_-_2.5rem)/15.5),24px)] font-normal leading-[1.25] tracking-[0.04em] text-[#161616] min-[360px]:whitespace-nowrap md:text-[length:min(calc((100vw_-_5rem)/16.5),34px)] md:tracking-[0.08em] lg:text-[length:clamp(34px,3.2vw,52px)] lg:tracking-[0.1em]">
             Маркетинг и продажи
             <br />
             загородной недвижимости
