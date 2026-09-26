@@ -6,14 +6,14 @@ export function Hero() {
   const parallaxRef = useParallax<HTMLDivElement>(0.08, 18)
 
   return (
-    <section id="top" className="mx-auto max-w-[1400px] px-5 pt-28 md:px-10 md:pt-36">
-      <div className="fade-up">
+    <section id="top" className="pt-28 md:pt-36">
+      <div className="fade-up mx-auto max-w-[1400px] px-5 md:px-10">
         <p className="font-mono text-[11px] uppercase tracking-[0.24em] text-muted-foreground">
           AURE AGENCY / Real Estate Marketing
         </p>
       </div>
 
-      <div className="mt-6 overflow-hidden rounded-lg border border-border">
+      <div className="mt-6 w-full overflow-hidden">
         <div ref={parallaxRef}>
           <video
             src="/hero-video.mp4"
@@ -24,16 +24,14 @@ export function Hero() {
             playsInline
             preload="auto"
             aria-label="AURE AGENCY — логотип на фактурной каменной стене"
-            className="aspect-video w-full object-cover md:aspect-auto md:h-[64vh] md:scale-110"
+            className="block aspect-video w-full max-w-none object-cover md:aspect-auto md:h-[64vh] md:scale-110"
           />
         </div>
       </div>
 
-      <div className="fade-up">
-        <h1 className="mt-6 max-w-4xl text-balance text-[length:min(calc((100vw_-_2.5rem)/11),3rem)] font-normal leading-[0.96] tracking-[-0.03em] md:text-[length:min(calc((100vw_-_5rem)/11),3.5rem)] lg:text-[length:clamp(64px,5.2vw,78px)]">
-          Маркетинг загородной
-          <br />
-          <span className="aure-gradient-text">недвижимости</span>
+      <div className="fade-up mx-auto max-w-[1400px] px-5 md:px-10">
+        <h1 className="mt-6 text-balance text-[length:min(calc((100vw_-_2.5rem)/11),3rem)] font-normal leading-none tracking-[-0.035em] text-[#777777] md:whitespace-nowrap md:text-[length:min(calc((100vw_-_5rem)/17.5),48px)] lg:text-[length:clamp(48px,4.4vw,68px)]">
+          Маркетинг загородной недвижимости
         </h1>
 
         <div className="mt-8 grid gap-8 border-t border-border pt-8 md:grid-cols-[1.4fr_1fr] md:items-end">
