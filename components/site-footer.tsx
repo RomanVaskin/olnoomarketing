@@ -35,6 +35,7 @@ export function SiteFooter() {
         <div className="mt-16 flex flex-col gap-2 border-t border-border pt-6 font-mono text-xs text-muted-foreground sm:flex-row sm:items-center sm:justify-between">
           <span>© 2026 OLNOO</span>
           <span>Real Estate Marketing</span>
+          <span>deploy reg test</span>
         </div>
       </div>
     </footer>
