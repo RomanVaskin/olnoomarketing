@@ -17,7 +17,7 @@ export function SiteHeader() {
   return (
     <header className="fixed inset-x-0 top-0 z-50 border-b border-border/70 bg-background/80 backdrop-blur-md">
       <div className="mx-auto flex h-16 max-w-[1400px] items-center justify-between px-5 md:px-10">
-        <a href="/#top" className="flex items-center" aria-label="OLNOO — на главную">
+        <a href="/#top" className="flex items-center" aria-label="AURE AGENCY — на главную">
           <Logo height={20} />
         </a>
 

@@ -10,13 +10,13 @@ export function Hero() {
     <section id="top" className="mx-auto max-w-[1400px] px-5 pt-28 md:px-10 md:pt-36">
       <div className="fade-up">
         <p className="font-mono text-[11px] uppercase tracking-[0.24em] text-muted-foreground">
-          OLNOO / Real Estate Marketing
+          AURE AGENCY / Real Estate Marketing
         </p>
 
         <h1 className="mt-6 max-w-4xl text-balance text-[2.6rem] font-medium leading-[1.02] tracking-tight sm:text-6xl md:text-7xl lg:text-[5.5rem]">
           Маркетинг
           <br />
-          <span className="olnoo-gradient-text">загородной недвижимости</span>
+          <span className="aure-gradient-text">загородной недвижимости</span>
         </h1>
 
         <div className="mt-8 grid gap-8 border-t border-border pt-8 md:grid-cols-[1.4fr_1fr] md:items-end">
