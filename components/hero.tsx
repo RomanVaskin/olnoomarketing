@@ -24,7 +24,7 @@ export function Hero() {
             playsInline
             preload="auto"
             aria-label="AURE AGENCY — логотип на фактурной каменной стене"
-            className="h-[46vh] w-full scale-110 object-cover md:h-[64vh]"
+            className="aspect-video w-full object-cover md:aspect-auto md:h-[64vh] md:scale-110"
           />
         </div>
       </div>
