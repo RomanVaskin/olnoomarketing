@@ -9,7 +9,7 @@ export function Hero() {
     <section id="top" className="pt-16">
       <div className="relative w-full overflow-hidden">
         <div className="fade-up absolute inset-x-0 top-[clamp(20px,3.3vw,48px)] z-[2] mx-auto max-w-[1400px] px-5 md:px-10">
-          <p className="font-mono min-[360px]:whitespace-nowrap text-[11px] uppercase tracking-[0.24em] text-[rgba(45,45,45,0.72)]">
+          <p className="font-mono min-[360px]:whitespace-nowrap text-[12px] font-medium uppercase leading-none tracking-[0.14em] text-[rgba(55,55,55,0.82)] md:text-[13px] md:tracking-[0.22em] lg:text-[15px]">
             AURE AGENCY / Real Estate Marketing
           </p>
         </div>
