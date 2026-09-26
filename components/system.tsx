@@ -9,9 +9,11 @@ export function MarketingSystem() {
       <Reveal>
         <SectionLabel>Система</SectionLabel>
 
-        <h2 className="mt-8 max-w-4xl text-balance text-3xl font-medium leading-[1.08] tracking-tight sm:text-5xl md:text-6xl">
-          Маркетинг должен приводить не клики,{' '}
-          <span className="aure-gradient-text">а покупателей.</span>
+        <h2 className="mt-8 font-mono text-[length:min(calc((100vw_-_2.5rem)/15.5),24px)] font-light leading-[1.25] tracking-[0.04em] text-[#161616] min-[360px]:whitespace-nowrap md:text-[length:min(calc((100vw_-_5rem)/16.5),34px)] md:tracking-[0.08em] lg:text-[length:clamp(34px,3.2vw,52px)] lg:tracking-[0.1em]">
+          Маркетинг должен
+          <br className="md:hidden" /> приводить
+          <br className="hidden md:inline" /> не клики,
+          <br className="md:hidden" /> а покупателей.
         </h2>
       </Reveal>
 
