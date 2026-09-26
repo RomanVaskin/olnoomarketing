@@ -12,7 +12,22 @@ export function Hero() {
         <p className="font-mono text-[11px] uppercase tracking-[0.24em] text-muted-foreground">
           AURE AGENCY / Real Estate Marketing
         </p>
+      </div>
 
+      <div className="mt-6 overflow-hidden rounded-lg border border-border">
+        <div ref={parallaxRef}>
+          <Image
+            src="/hero-suburban.png"
+            alt="Аэрофотосъёмка современного коттеджного посёлка среди леса и озера"
+            width={1600}
+            height={900}
+            priority
+            className="h-[46vh] w-full scale-110 object-cover md:h-[64vh]"
+          />
+        </div>
+      </div>
+
+      <div className="fade-up">
         <h1 className="mt-6 max-w-4xl text-balance text-[2.6rem] font-medium leading-[1.02] tracking-tight sm:text-6xl md:text-7xl lg:text-[5.5rem]">
           Маркетинг
           <br />
@@ -38,19 +53,6 @@ export function Hero() {
               Что мы делаем
             </a>
           </div>
-        </div>
-      </div>
-
-      <div className="mt-12 overflow-hidden rounded-lg border border-border md:mt-16">
-        <div ref={parallaxRef}>
-          <Image
-            src="/hero-suburban.png"
-            alt="Аэрофотосъёмка современного коттеджного посёлка среди леса и озера"
-            width={1600}
-            height={900}
-            priority
-            className="h-[46vh] w-full scale-110 object-cover md:h-[64vh]"
-          />
         </div>
       </div>
     </section>
