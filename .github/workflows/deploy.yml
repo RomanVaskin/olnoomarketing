@@ -26,12 +26,12 @@ jobs:
             git fetch origin
             git reset --hard origin/main
 
-            npm install
+            pnpm install --frozen-lockfile
 
             # Build into a separate dir so the running site keeps its assets
             # if the build fails; swap it in only after a successful build.
             rm -rf .next-new
-            NEXT_DIST_DIR=.next-new npm run build
+            NEXT_DIST_DIR=.next-new pnpm build
 
             rm -rf .next-old
             if [ -d .next ]; then mv .next .next-old; fi
