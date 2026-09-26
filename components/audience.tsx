@@ -21,8 +21,10 @@ export function Audience() {
     <section id="audience" className="mx-auto max-w-[1400px] px-5 py-24 md:px-10 md:py-32">
       <Reveal>
         <SectionLabel>Для кого</SectionLabel>
-        <h2 className="mt-6 max-w-3xl text-balance text-3xl font-medium leading-tight tracking-tight sm:text-4xl md:text-5xl">
-          Работаем с проектами загородной недвижимости
+        <h2 className="mt-6 font-mono text-[length:min(calc((100vw_-_2.5rem)/15.5),24px)] font-light leading-[1.25] tracking-[0.04em] text-[#161616] min-[360px]:whitespace-nowrap md:text-[length:min(calc((100vw_-_5rem)/16.5),34px)] md:tracking-[0.08em] lg:text-[length:clamp(34px,3.2vw,52px)] lg:tracking-[0.1em]">
+          Работаем с проектами
+          <br />
+          загородной недвижимости
         </h2>
       </Reveal>
 
