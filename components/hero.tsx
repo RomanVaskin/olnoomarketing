@@ -31,7 +31,9 @@ export function Hero() {
 
       <div className="fade-up mx-auto max-w-[1400px] px-5 md:px-10">
         <h1 className="mt-6 text-balance text-[length:min(calc((100vw_-_2.5rem)/11),3rem)] font-normal leading-none tracking-[-0.035em] text-[#777777] md:whitespace-nowrap md:text-[length:min(calc((100vw_-_5rem)/17.5),48px)] lg:text-[length:clamp(48px,4.4vw,68px)]">
-          Маркетинг загородной недвижимости
+          Маркетинг и продажи
+          <br />
+          загородной недвижимости
         </h1>
 
         <div className="mt-8 grid gap-8 border-t border-border pt-8 md:grid-cols-[1.4fr_1fr] md:items-end">
