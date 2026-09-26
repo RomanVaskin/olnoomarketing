@@ -1,6 +1,5 @@
 'use client'
 
-import Image from 'next/image'
 import { useParallax } from '@/lib/use-parallax'
 
 export function Hero() {
@@ -16,13 +15,16 @@ export function Hero() {
 
       <div className="mt-6 overflow-hidden rounded-lg border border-border">
         <div ref={parallaxRef}>
-          <Image
-            src="/hero-suburban.png"
-            alt="Аэрофотосъёмка современного коттеджного посёлка среди леса и озера"
-            width={1600}
-            height={900}
-            priority
-            className="h-[46vh] w-full scale-110 object-cover md:h-[64vh]"
+          <video
+            src="/hero-video.mp4"
+            poster="/hero-video-poster.jpg"
+            autoPlay
+            muted
+            loop
+            playsInline
+            preload="auto"
+            aria-label="AURE AGENCY — логотип на фактурной каменной стене"
+            className="aspect-video w-full object-cover md:aspect-auto md:h-[64vh] md:scale-110"
           />
         </div>
       </div>
