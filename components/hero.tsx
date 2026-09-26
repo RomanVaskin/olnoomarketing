@@ -40,8 +40,8 @@ export function Hero() {
       <div className="fade-up mx-auto max-w-[1400px] px-5 md:px-10">
         <div className="mt-8 grid gap-8 border-t border-border pt-8 md:grid-cols-[1.4fr_1fr] md:items-end">
           <p className="mt-[1lh] max-w-xl text-pretty text-base leading-relaxed text-muted-foreground md:text-lg">
-            Помогаем девелоперам, коттеджным посёлкам и строительным компаниям привлекать
-            покупателей и превращать маркетинг в продажи.
+            Помогаем девелоперам поселков, строительным компаниям и агентствам недвижимости
+            продавать дома быстрее и дороже.
           </p>
           <div className="flex flex-wrap items-center gap-3 md:justify-end">
             <a
