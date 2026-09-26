@@ -30,10 +30,10 @@ export function Hero() {
       </div>
 
       <div className="fade-up">
-        <h1 className="mt-6 max-w-4xl text-balance text-[length:min(calc((100vw_-_2.5rem)/13.2),4.375rem)] font-medium leading-[1.02] tracking-tight md:text-[length:min(calc((100vw_-_5rem)/13.2),4.375rem)]">
-          Маркетинг
+        <h1 className="mt-6 max-w-4xl text-balance text-[length:min(calc((100vw_-_2.5rem)/11.2),5.2rem)] font-medium leading-[1.02] tracking-tight md:text-[length:min(calc((100vw_-_5rem)/11.2),5.2rem)]">
+          Маркетинг загородной
           <br />
-          <span className="aure-gradient-text">загородной недвижимости</span>
+          <span className="aure-gradient-text">недвижимости</span>
         </h1>
 
         <div className="mt-8 grid gap-8 border-t border-border pt-8 md:grid-cols-[1.4fr_1fr] md:items-end">
