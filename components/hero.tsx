@@ -16,14 +16,14 @@ export function Hero() {
       <div className="mt-6 overflow-hidden rounded-lg border border-border">
         <div ref={parallaxRef}>
           <video
-            src="/kling_20260926_VIDEO_Create_a_5_5598_0.mp4"
-            poster="/hero-suburban.png"
+            src="/hero-video.mp4"
+            poster="/hero-video-poster.jpg"
             autoPlay
             muted
             loop
             playsInline
             preload="auto"
-            aria-label="Аэрофотосъёмка современного коттеджного посёлка среди леса и озера"
+            aria-label="AURE AGENCY — логотип на фактурной каменной стене"
             className="h-[46vh] w-full scale-110 object-cover md:h-[64vh]"
           />
         </div>
