@@ -22,18 +22,18 @@ export function SiteFooter() {
               Контакты
             </a>
             <a
-              href="https://olnoo.com"
+              href="https://aureagency.ru"
               target="_blank"
               rel="noopener noreferrer"
               className="text-sm text-muted-foreground transition-colors hover:text-foreground"
             >
-              olnoo.com
+              aureagency.ru
             </a>
           </nav>
         </div>
 
         <div className="mt-16 flex flex-col gap-2 border-t border-border pt-6 font-mono text-xs text-muted-foreground sm:flex-row sm:items-center sm:justify-between">
-          <span>© 2026 OLNOO</span>
+          <span>© 2026 AURE AGENCY</span>
           <span>Real Estate Marketing</span>
           <span>deploy reg test</span>
         </div>

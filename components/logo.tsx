@@ -9,9 +9,9 @@ export function Logo({
 }) {
   return (
     <Image
-      src="/olnoo-logo.png"
-      alt="OLNOO"
-      width={height * 6.7}
+      src="/aure-logo.svg"
+      alt="AURE AGENCY"
+      width={height * 9.73}
       height={height}
       priority
       className={className}

@@ -12,7 +12,7 @@ export function Results() {
         <h2 className="mt-8 max-w-3xl text-balance text-4xl font-medium leading-[1.05] tracking-tight sm:text-5xl md:text-6xl">
           Считаем не показы.
           <br />
-          <span className="olnoo-gradient-text">Считаем движение к сделке.</span>
+          <span className="aure-gradient-text">Считаем движение к сделке.</span>
         </h2>
       </Reveal>
 

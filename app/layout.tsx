@@ -7,9 +7,9 @@ const geistSans = Geist({ subsets: ['latin', 'cyrillic'], variable: '--font-geis
 const geistMono = Geist_Mono({ subsets: ['latin'], variable: '--font-geist-mono' })
 
 export const metadata: Metadata = {
-  title: 'OLNOO — Маркетинг загородной недвижимости',
+  title: 'AURE AGENCY — Маркетинг загородной недвижимости',
   description:
-    'OLNOO — маркетинг и digital-рост для коттеджных посёлков, девелоперов и строительных компаний. Превращаем маркетинг в продажи.',
+    'AURE AGENCY — маркетинг и digital-рост для коттеджных посёлков, девелоперов и строительных компаний. Превращаем маркетинг в продажи.',
   generator: 'v0.app',
 }
 

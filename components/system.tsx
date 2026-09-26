@@ -11,7 +11,7 @@ export function MarketingSystem() {
 
         <h2 className="mt-8 max-w-4xl text-balance text-3xl font-medium leading-[1.08] tracking-tight sm:text-5xl md:text-6xl">
           Маркетинг должен приводить не клики,{' '}
-          <span className="olnoo-gradient-text">а покупателей.</span>
+          <span className="aure-gradient-text">а покупателей.</span>
         </h2>
       </Reveal>
 
@@ -28,7 +28,7 @@ export function MarketingSystem() {
             </div>
           ))}
         </div>
-        <div className="h-1 olnoo-gradient" aria-hidden="true" />
+        <div className="h-1 aure-gradient" aria-hidden="true" />
       </Reveal>
 
       <p className="mt-10 max-w-2xl text-pretty text-base leading-relaxed text-muted-foreground md:text-lg">

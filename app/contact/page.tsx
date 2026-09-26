@@ -4,7 +4,7 @@ import { FinalCta } from '@/components/final-cta'
 import { SiteFooter } from '@/components/site-footer'
 
 export const metadata: Metadata = {
-  title: 'Контакты — OLNOO',
+  title: 'Контакты — AURE AGENCY',
   description:
     'Расскажите о вашем проекте загородной недвижимости — предложим короткий путь к росту продаж.',
 }
