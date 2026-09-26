@@ -6,14 +6,14 @@ export function Hero() {
   const parallaxRef = useParallax<HTMLDivElement>(0.08, 18)
 
   return (
-    <section id="top" className="pt-28 md:pt-36">
-      <div className="fade-up mx-auto max-w-[1400px] px-5 md:px-10">
-        <p className="font-mono text-[11px] uppercase tracking-[0.24em] text-muted-foreground">
-          AURE AGENCY / Real Estate Marketing
-        </p>
-      </div>
+    <section id="top" className="pt-16">
+      <div className="relative w-full overflow-hidden">
+        <div className="fade-up absolute inset-x-0 top-[clamp(20px,3.3vw,48px)] z-[2] mx-auto max-w-[1400px] px-5 md:px-10">
+          <p className="font-mono min-[360px]:whitespace-nowrap text-[11px] uppercase tracking-[0.24em] text-[rgba(45,45,45,0.72)]">
+            AURE AGENCY / Real Estate Marketing
+          </p>
+        </div>
 
-      <div className="mt-6 w-full overflow-hidden">
         <div ref={parallaxRef}>
           <video
             src="/hero-video.mp4"
