@@ -7,6 +7,7 @@ import { CasesCta } from '@/components/cases-cta'
 import { Audience } from '@/components/audience'
 import { Services } from '@/components/services'
 import { MarketingSystem } from '@/components/system'
+import { ContactsCta } from '@/components/contacts-cta'
 import { SiteFooter } from '@/components/site-footer'
 
 export default function Page() {
@@ -22,6 +23,7 @@ export default function Page() {
         <Audience />
         <Services />
         <MarketingSystem />
+        <ContactsCta />
       </main>
       <SiteFooter />
     </>
