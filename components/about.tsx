@@ -2,8 +2,7 @@ import Image from 'next/image'
 import { SectionLabel } from './section-label'
 import { Reveal } from './reveal'
 
-// Replace with the final photo once it is ready (file in /public).
-const ABOUT_IMAGE_SRC = '/about-placeholder.jpg'
+const ABOUT_IMAGE_SRC = '/aure-agency-who-we-are-marketing.webp'
 const ABOUT_IMAGE_ALT =
   'Рабочее пространство отдела маркетинга: стол с ноутбуком, архитектурными планами и флипчартом со схемами'
 
@@ -38,7 +37,7 @@ export function About() {
               alt={ABOUT_IMAGE_ALT}
               fill
               sizes="(min-width: 768px) 52vw, 100vw"
-              className="object-cover"
+              className="object-cover object-[70%_50%]"
             />
           </div>
         </Reveal>
