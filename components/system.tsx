@@ -13,7 +13,7 @@ export function MarketingSystem() {
           Маркетинг должен
           <br className="md:hidden" /> приводить
           <br className="hidden md:inline" /> не клики,
-          <br className="md:hidden" /> а покупателей.
+          <br className="md:hidden" /> а покупателей
         </h2>
       </Reveal>
 
