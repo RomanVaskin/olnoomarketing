@@ -3,9 +3,9 @@ import { Reveal } from './reveal'
 
 const images = [
   {
-    src: '/aure-services-01-analytics.webp',
-    alt: 'Аналитика продаж проекта загородной недвижимости',
-    className: 'object-center',
+    src: '/aure-agency-who-we-are-marketing.webp',
+    alt: 'Аналитика: рабочий стол с ноутбуком и флипчарт с графиками',
+    className: 'object-[70%_50%]',
   },
   {
     src: '/aure-services-02-branding.webp',
