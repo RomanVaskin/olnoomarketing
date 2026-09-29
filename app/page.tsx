@@ -3,6 +3,7 @@ import { Hero } from '@/components/hero'
 import { About } from '@/components/about'
 import { ServicesCta } from '@/components/services-cta'
 import { ServicesPreview } from '@/components/services-preview'
+import { CasesCta } from '@/components/cases-cta'
 import { Audience } from '@/components/audience'
 import { Services } from '@/components/services'
 import { MarketingSystem } from '@/components/system'
@@ -17,6 +18,7 @@ export default function Page() {
         <About />
         <ServicesCta />
         <ServicesPreview />
+        <CasesCta />
         <Audience />
         <Services />
         <MarketingSystem />
