@@ -2,6 +2,7 @@ import { SiteHeader } from '@/components/site-header'
 import { Hero } from '@/components/hero'
 import { About } from '@/components/about'
 import { ServicesCta } from '@/components/services-cta'
+import { ServicesPreview } from '@/components/services-preview'
 import { Audience } from '@/components/audience'
 import { Services } from '@/components/services'
 import { MarketingSystem } from '@/components/system'
@@ -15,6 +16,7 @@ export default function Page() {
         <Hero />
         <About />
         <ServicesCta />
+        <ServicesPreview />
         <Audience />
         <Services />
         <MarketingSystem />
