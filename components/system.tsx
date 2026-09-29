@@ -5,7 +5,7 @@ const flow = ['Продукт', 'Упаковка', 'Сайт', 'Трафик', 
 
 export function MarketingSystem() {
   return (
-    <section id="system" className="mx-auto max-w-[1400px] px-5 py-24 md:px-10 md:py-32">
+    <section id="system" className="mx-auto max-w-[1400px] px-5 pb-[72px] pt-24 md:px-10 md:pb-20 md:pt-32">
       <Reveal>
         <SectionLabel>Система</SectionLabel>
 
@@ -13,7 +13,7 @@ export function MarketingSystem() {
           Маркетинг должен
           <br className="md:hidden" /> приводить
           <br className="hidden md:inline" /> не клики,
-          <br className="md:hidden" /> а покупателей.
+          <br className="md:hidden" /> а покупателей
         </h2>
       </Reveal>
 
