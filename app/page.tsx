@@ -1,9 +1,7 @@
 import { SiteHeader } from '@/components/site-header'
 import { Hero } from '@/components/hero'
 import { About } from '@/components/about'
-import { ServicesCta } from '@/components/services-cta'
-import { ServicesPreview } from '@/components/services-preview'
-import { CasesCta } from '@/components/cases-cta'
+import { ServicesShowcase } from '@/components/services-showcase'
 import { Audience } from '@/components/audience'
 import { Services } from '@/components/services'
 import { MarketingSystem } from '@/components/system'
@@ -17,9 +15,7 @@ export default function Page() {
       <main className="font-primary tracking-body">
         <Hero />
         <About />
-        <ServicesCta />
-        <ServicesPreview />
-        <CasesCta />
+        <ServicesShowcase />
         <Audience />
         <Services />
         <MarketingSystem />
