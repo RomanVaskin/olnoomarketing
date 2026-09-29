@@ -29,11 +29,15 @@ export function Services() {
           </h2>
         </Reveal>
 
-        <div className="mt-14 grid grid-cols-1 border-l border-t border-border sm:grid-cols-2 lg:grid-cols-3">
+        <div className="mt-14 grid grid-cols-1 items-stretch border-l border-t border-border md:grid-cols-3">
           {services.map((s, i) => (
-            <Reveal key={s.title} index={i}>
-              <div className="group border-b border-r border-border bg-background p-8 transition-colors hover:bg-secondary md:p-10">
-                <h3 className="text-xl font-primary font-light leading-[1.25] tracking-subheading text-[#161616] md:text-[1.35rem]">{s.title}</h3>
+            <Reveal key={s.title} index={i} className="h-full">
+              <div className="group h-full border-b border-r border-border bg-background p-8 transition-colors hover:bg-secondary md:px-5 md:py-8 lg:px-10 lg:py-12">
+                {/* One size for all three titles, derived from the column's inner width so the
+                    longest one (≈13.2em) stays on a single line from tablet up. */}
+                <h3 className="text-xl font-primary font-light leading-[1.2] tracking-[-0.01em] text-[#161616] md:whitespace-nowrap md:text-[length:calc(((100vw_-_80px)/3_-_40px)/13.6)] lg:text-[length:min(28px,calc(((min(100vw,1400px)_-_80px)/3_-_80px)/13.6))]">
+                  {s.title}
+                </h3>
                 <p className="mt-4 text-sm leading-relaxed text-muted-foreground">{s.text}</p>
               </div>
             </Reveal>
