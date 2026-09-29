@@ -13,7 +13,7 @@ export default function Page() {
   return (
     <>
       <SiteHeader />
-      <main>
+      <main className="font-primary tracking-body">
         <Hero />
         <About />
         <ServicesCta />

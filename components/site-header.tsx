@@ -27,7 +27,7 @@ export function SiteHeader() {
             <Link
               key={item.href}
               href={item.href}
-              className="text-[13px] tracking-wide text-muted-foreground transition-colors hover:text-foreground"
+              className="font-primary text-[13px] tracking-ui text-muted-foreground transition-colors hover:text-foreground"
             >
               {item.label}
             </Link>
@@ -37,7 +37,7 @@ export function SiteHeader() {
         <div className="flex items-center gap-3">
           <a
             href="/contact"
-            className="hidden rounded-full border border-foreground/15 px-5 py-2 text-[13px] font-medium tracking-wide transition-colors hover:bg-foreground hover:text-background sm:inline-block"
+            className="hidden rounded-full border border-foreground/15 px-5 py-2 font-primary text-[13px] font-normal tracking-ui transition-colors hover:bg-foreground hover:text-background sm:inline-block"
           >
             Обсудить проект
           </a>
@@ -66,7 +66,7 @@ export function SiteHeader() {
                 key={item.href}
                 href={item.href}
                 onClick={() => setOpen(false)}
-                className="border-b border-border/60 py-3 text-sm text-foreground/80 last:border-0"
+                className="border-b border-border/60 py-3 font-primary text-sm tracking-ui text-foreground/80 last:border-0"
               >
                 {item.label}
               </Link>
@@ -74,7 +74,7 @@ export function SiteHeader() {
             <a
               href="/contact"
               onClick={() => setOpen(false)}
-              className="mt-4 rounded-full bg-foreground px-5 py-3 text-center text-sm font-medium text-background"
+              className="mt-4 rounded-full bg-foreground px-5 py-3 text-center font-primary text-sm font-normal tracking-ui text-background"
             >
               Обсудить проект
             </a>

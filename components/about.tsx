@@ -12,7 +12,7 @@ export function About() {
       <div className="grid gap-12 border-y border-border py-16 md:grid-cols-[48fr_52fr] md:items-center md:gap-10 md:py-24 lg:gap-16">
         <Reveal>
           <SectionLabel>Кто мы</SectionLabel>
-          <h2 className="mt-6 font-mono text-[length:min(calc((100vw_-_2.5rem)/15.5),24px)] font-light leading-[1.25] tracking-[0.04em] text-[#161616] min-[360px]:whitespace-nowrap md:text-[length:clamp(22px,2.9vw,30px)] md:tracking-[0.08em] lg:text-[length:clamp(30px,3vw,44px)] lg:tracking-[0.1em]">
+          <h2 className="mt-6 font-primary text-[length:min(calc((100vw_-_2.5rem)/15.5),24px)] font-light leading-[1.1] tracking-display text-[#161616] min-[360px]:whitespace-nowrap md:text-[length:clamp(22px,2.9vw,30px)] lg:text-[length:clamp(30px,3vw,44px)]">
             Маркетинг, который
             <br />
             приводит к продаже
