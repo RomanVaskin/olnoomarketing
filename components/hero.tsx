@@ -9,7 +9,7 @@ export function Hero() {
     <section id="top" className="pt-16">
       <div className="relative aspect-video w-full overflow-hidden md:aspect-auto md:h-[min(56.25vw,70vh)] lg:h-[min(clamp(650px,75vh,900px),56vw)]">
         <div className="fade-up absolute inset-x-0 top-[clamp(20px,3.3vw,48px)] z-[2] mx-auto max-w-[1400px] px-5 md:px-10">
-          <p className="font-mono min-[360px]:whitespace-nowrap text-[12px] font-medium uppercase leading-none tracking-[0.14em] text-[rgba(55,55,55,0.82)] md:text-[13px] md:tracking-[0.22em] lg:text-[15px]">
+          <p className="font-primary min-[360px]:whitespace-nowrap text-[12px] font-normal uppercase leading-none tracking-[0.18em] text-[rgba(55,55,55,0.82)] md:text-[13px] md:tracking-label lg:text-[15px]">
             AURE AGENCY / Real Estate Marketing
           </p>
         </div>
@@ -29,7 +29,7 @@ export function Hero() {
         </div>
 
         <div className="fade-up absolute inset-x-0 bottom-5 z-[3] mx-auto max-w-[1400px] px-5 md:bottom-[clamp(32px,5vh,64px)] md:px-10 lg:bottom-[clamp(45px,7vh,90px)]">
-          <h1 className="font-mono text-[length:min(calc((100vw_-_2.5rem)/15.5),24px)] font-light leading-[1.25] tracking-[0.04em] text-[#161616] min-[360px]:whitespace-nowrap md:text-[length:min(calc((100vw_-_5rem)/16.5),34px)] md:tracking-[0.08em] lg:text-[length:clamp(34px,3.2vw,52px)] lg:tracking-[0.1em]">
+          <h1 className="font-primary text-[length:min(calc((100vw_-_2.5rem)/15.5),24px)] font-light leading-[1.1] tracking-display text-[#161616] min-[360px]:whitespace-nowrap md:text-[length:min(calc((100vw_-_5rem)/16.5),34px)] lg:text-[length:clamp(34px,3.2vw,52px)]">
             Маркетинг и продажи
             <br />
             загородной недвижимости
@@ -46,13 +46,13 @@ export function Hero() {
           <div className="flex flex-wrap items-center gap-3 md:justify-end">
             <a
               href="/contact"
-              className="rounded-full bg-foreground px-6 py-3 text-sm font-medium text-background transition-opacity hover:opacity-90"
+              className="rounded-full bg-foreground px-6 py-3 text-sm font-normal tracking-ui text-background transition-opacity hover:opacity-90"
             >
               Обсудить проект
             </a>
             <a
               href="#services"
-              className="rounded-full border border-foreground/15 px-6 py-3 text-sm font-medium transition-colors hover:bg-secondary"
+              className="rounded-full border border-foreground/15 px-6 py-3 text-sm font-normal tracking-ui transition-colors hover:bg-secondary"
             >
               Что мы делаем
             </a>

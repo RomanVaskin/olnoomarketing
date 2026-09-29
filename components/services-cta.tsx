@@ -2,7 +2,7 @@ import Link from 'next/link'
 
 /** Black pill link shared by the centered home-page CTAs (Услуги, Кейсы). */
 export const ctaButtonClass =
-  'rounded-full bg-foreground px-6 py-3 text-sm font-medium text-background transition-opacity hover:opacity-90'
+  'rounded-full bg-foreground px-6 py-3 text-sm font-normal tracking-ui text-background transition-opacity hover:opacity-90'
 
 export function ServicesCta() {
   return (

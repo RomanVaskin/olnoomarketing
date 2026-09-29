@@ -9,7 +9,7 @@ export function MarketingSystem() {
       <Reveal>
         <SectionLabel>Система</SectionLabel>
 
-        <h2 className="mt-8 font-mono text-[length:min(calc((100vw_-_2.5rem)/15.5),24px)] font-light leading-[1.25] tracking-[0.04em] text-[#161616] min-[360px]:whitespace-nowrap md:text-[length:min(calc((100vw_-_5rem)/16.5),34px)] md:tracking-[0.08em] lg:text-[length:clamp(34px,3.2vw,52px)] lg:tracking-[0.1em]">
+        <h2 className="mt-8 font-primary text-[length:min(calc((100vw_-_2.5rem)/15.5),24px)] font-light leading-[1.1] tracking-display text-[#161616] min-[360px]:whitespace-nowrap md:text-[length:min(calc((100vw_-_5rem)/16.5),34px)] lg:text-[length:clamp(34px,3.2vw,52px)]">
           Маркетинг должен
           <br className="md:hidden" /> приводить
           <br className="hidden md:inline" /> не клики,
@@ -24,7 +24,7 @@ export function MarketingSystem() {
               key={step}
               className="flex flex-1 items-center gap-4 px-6 py-7 md:flex-col md:items-start md:gap-6 md:px-6 md:py-10"
             >
-              <span className="text-base font-medium uppercase tracking-wide md:text-lg">
+              <span className="text-base font-medium uppercase tracking-ui md:text-lg">
                 {step}
               </span>
             </div>
@@ -40,7 +40,7 @@ export function MarketingSystem() {
 
       <a
         href="/system"
-        className="mt-6 inline-flex items-center gap-2 text-sm font-medium text-foreground transition-opacity hover:opacity-70"
+        className="mt-6 inline-flex items-center gap-2 text-sm font-normal tracking-ui text-foreground transition-opacity hover:opacity-70"
       >
         Подробнее о системе →
       </a>
