@@ -1,10 +1,11 @@
 'use client'
 
 import { useState } from 'react'
+import Link from 'next/link'
 import { Logo } from './logo'
 
 const nav = [
-  { label: 'Услуги', href: '/#services' },
+  { label: 'Услуги', href: '/services' },
   { label: 'Процесс', href: '/process' },
   { label: 'Проекты', href: '/projects' },
   { label: 'Система', href: '/system' },
@@ -23,13 +24,13 @@ export function SiteHeader() {
 
         <nav className="hidden items-center gap-8 lg:flex">
           {nav.map((item) => (
-            <a
+            <Link
               key={item.href}
               href={item.href}
               className="text-[13px] tracking-wide text-muted-foreground transition-colors hover:text-foreground"
             >
               {item.label}
-            </a>
+            </Link>
           ))}
         </nav>
 
@@ -61,14 +62,14 @@ export function SiteHeader() {
         <div className="border-t border-border/70 bg-background lg:hidden">
           <nav className="mx-auto flex max-w-[1400px] flex-col px-5 py-4 md:px-10">
             {nav.map((item) => (
-              <a
+              <Link
                 key={item.href}
                 href={item.href}
                 onClick={() => setOpen(false)}
                 className="border-b border-border/60 py-3 text-sm text-foreground/80 last:border-0"
               >
                 {item.label}
-              </a>
+              </Link>
             ))}
             <a
               href="/contact"
