@@ -1,6 +1,7 @@
 import { Reveal } from './reveal'
 import { BrokerageInfographics } from './brokerage-infographics'
 import { FocusCard } from './focus-card'
+import { InView } from './in-view'
 
 const packages = [
   {
@@ -60,7 +61,11 @@ const subheadingStrong =
 
 /** Section subheading one level below the page H1, led by a short black rule. */
 function SectionSubheading({ children, strong = false }: { children: string; strong?: boolean }) {
-  return <h2 className={`${subheadingBase} ${strong ? subheadingStrong : subheadingRegular}`}>{children}</h2>
+  return (
+    <h2 className={`${subheadingBase} ${strong ? `${subheadingStrong} subheading-draw` : subheadingRegular}`}>
+      <span>{children}</span>
+    </h2>
+  )
 }
 
 /** Figure style for package prices. */
@@ -70,9 +75,10 @@ const figureClass =
 export function ServicesPackages() {
   return (
     <section id="formats" className="mx-auto max-w-[1400px] px-5 pb-20 md:px-10 md:pb-24">
-      <Reveal className="border-t border-foreground pt-12 md:pt-14">
+      {/* the rule draws in, then the title fades up — once, see .subheading-draw */}
+      <InView className="border-t border-foreground pt-12 md:pt-14">
         <SectionSubheading strong>Комплексный маркетинг</SectionSubheading>
-      </Reveal>
+      </InView>
 
       <div className="mx-auto mt-9 grid max-w-[1080px] grid-cols-1 gap-4 md:mt-10 md:grid-cols-2 md:gap-8 lg:gap-11">
         {packages.map((p, i) => (

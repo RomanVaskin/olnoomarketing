@@ -216,21 +216,21 @@
   .infographic-card {
     transition:
       transform 500ms cubic-bezier(0.22, 1, 0.36, 1),
-      filter 500ms ease,
-      opacity 500ms ease,
-      box-shadow 500ms ease;
+      filter 500ms cubic-bezier(0.22, 1, 0.36, 1),
+      opacity 500ms cubic-bezier(0.22, 1, 0.36, 1),
+      box-shadow 500ms cubic-bezier(0.22, 1, 0.36, 1);
   }
   @media (hover: hover) and (pointer: fine) {
     .infographic-card {
-      filter: grayscale(55%) saturate(55%) brightness(0.82) contrast(0.94);
-      opacity: 0.9;
+      filter: grayscale(55%) saturate(55%) brightness(0.84) contrast(0.95);
+      opacity: 0.92;
       box-shadow: 0 6px 18px rgba(0, 0, 0, 0.025);
     }
     .infographic-card:hover {
       filter: grayscale(0%) saturate(100%) brightness(1) contrast(1);
       opacity: 1;
-      transform: translateY(-6px) scale(1.025);
-      box-shadow: 0 18px 40px rgba(0, 0, 0, 0.08);
+      transform: translateY(-5px) scale(1.02);
+      box-shadow: 0 18px 40px rgba(0, 0, 0, 0.06);
     }
   }
 
@@ -247,7 +247,7 @@
     .package-card:hover {
       background-color: #e8e8e5;
       transform: translateY(-5px) scale(1.015);
-      box-shadow: 0 18px 40px rgba(0, 0, 0, 0.06);
+      box-shadow: 0 18px 40px rgba(0, 0, 0, 0.055);
     }
   }
   /* Touch screens: the same look while the card crosses the middle of the
@@ -255,7 +255,82 @@
   .package-card.is-active {
     background-color: #e8e8e5;
     transform: translateY(-5px) scale(1.015);
-    box-shadow: 0 18px 40px rgba(0, 0, 0, 0.06);
+    box-shadow: 0 18px 40px rgba(0, 0, 0, 0.055);
+  }
+
+  /* «Комплексный маркетинг» (components/services-packages.tsx): once in view
+     (components/in-view.tsx adds .is-inview), the short rule draws left to right,
+     then the title fades up 10px, 200ms later. */
+  .subheading-draw::before {
+    transform: scaleX(0);
+    transform-origin: left center;
+    transition: transform 650ms cubic-bezier(0.22, 1, 0.36, 1);
+  }
+  .subheading-draw > span {
+    opacity: 0;
+    transform: translateY(10px);
+    transition:
+      opacity 650ms cubic-bezier(0.22, 1, 0.36, 1) 200ms,
+      transform 650ms cubic-bezier(0.22, 1, 0.36, 1) 200ms;
+  }
+  .is-inview .subheading-draw::before {
+    transform: scaleX(1);
+  }
+  .is-inview .subheading-draw > span {
+    opacity: 1;
+    transform: none;
+  }
+
+  /* Process timeline (components/process.tsx). Stage --i (0–4) starts at
+     100ms + i × 300ms: its dot lands, its line segment draws to the next dot in
+     300ms (linear, so the line moves at one steady speed across all four
+     segments, 1.2s in total), then the number, name and words follow 80/160/240ms
+     later. Whole sequence ≈ 2s. Vertical on mobile, horizontal from md. */
+  .timeline .tl-line {
+    transform: scaleY(0);
+    transform-origin: top center;
+    transition: transform 300ms linear calc(100ms + var(--i) * 300ms);
+  }
+  @media (min-width: 768px) {
+    .timeline .tl-line {
+      transform: scaleX(0);
+      transform-origin: left center;
+    }
+  }
+  .timeline .tl-dot {
+    opacity: 0;
+    transform: scale(0.6);
+    transition:
+      opacity 350ms cubic-bezier(0.22, 1, 0.36, 1) calc(100ms + var(--i) * 300ms),
+      transform 350ms cubic-bezier(0.22, 1, 0.36, 1) calc(100ms + var(--i) * 300ms);
+  }
+  .timeline .tl-num,
+  .timeline .tl-name,
+  .timeline .tl-points {
+    opacity: 0;
+    transition:
+      opacity 450ms cubic-bezier(0.22, 1, 0.36, 1) var(--tl-delay),
+      transform 450ms cubic-bezier(0.22, 1, 0.36, 1) var(--tl-delay);
+  }
+  .timeline .tl-num {
+    transform: translateY(6px);
+    --tl-delay: calc(180ms + var(--i) * 300ms);
+  }
+  .timeline .tl-name {
+    transform: translateY(8px);
+    --tl-delay: calc(260ms + var(--i) * 300ms);
+  }
+  .timeline .tl-points {
+    transform: translateY(8px);
+    --tl-delay: calc(340ms + var(--i) * 300ms);
+  }
+  .timeline.is-inview .tl-line,
+  .timeline.is-inview .tl-dot,
+  .timeline.is-inview .tl-num,
+  .timeline.is-inview .tl-name,
+  .timeline.is-inview .tl-points {
+    opacity: 1;
+    transform: none;
   }
 
   /* Scroll-triggered reveal, used by components/reveal.tsx */
@@ -288,6 +363,17 @@
     .package-card:hover,
     .package-card.is-active {
       transform: none;
+    }
+    .subheading-draw::before,
+    .subheading-draw > span,
+    .timeline .tl-line,
+    .timeline .tl-dot,
+    .timeline .tl-num,
+    .timeline .tl-name,
+    .timeline .tl-points {
+      opacity: 1;
+      transform: none;
+      transition: none;
     }
   }
 }
