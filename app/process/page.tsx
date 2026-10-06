@@ -8,8 +8,8 @@ import { Results } from '@/components/results'
 import { SiteFooter } from '@/components/site-footer'
 import { ctaButtonClass } from '@/components/services-cta'
 
-const PROCESS_IMAGE_SRC = '/process-hero.webp'
-const PROCESS_IMAGE_ALT = 'Загородный дом со стеклянным фасадом и террасой у озера на закате'
+const PROCESS_IMAGE_SRC = '/IMG_0829.webp'
+const PROCESS_IMAGE_ALT = 'Архитектурная визуализация загородного дома у воды с линиями чертежа'
 const PROCESS_CTA_IMAGE_SRC = '/process-cta.webp'
 const PROCESS_CTA_IMAGE_ALT = 'Загородный дом с бассейном у озера в вечернем освещении'
 
@@ -37,7 +37,7 @@ export default function ProcessPage() {
                   результата.
                 </p>
               </div>
-              <div className="relative aspect-[3/2] w-full overflow-hidden">
+              <div className="relative aspect-video w-full overflow-hidden">
                 <Image
                   src={PROCESS_IMAGE_SRC}
                   alt={PROCESS_IMAGE_ALT}
