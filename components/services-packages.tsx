@@ -46,18 +46,20 @@ const notes = [
 export function ServicesPackages() {
   return (
     <section id="formats" className="mx-auto max-w-[1400px] px-5 pb-24 md:px-10 md:pb-32">
-      <Reveal>
-        <SectionLabel>Форматы сотрудничества</SectionLabel>
+      <Reveal className="border-t border-foreground pt-12 md:pt-14">
+        <h2 className="font-primary text-[length:min(calc((100vw_-_2.5rem)/15.5),24px)] font-light leading-[1.1] tracking-display text-[#161616] md:text-[length:min(calc((100vw_-_5rem)/16.5),34px)] lg:text-[length:clamp(34px,3.2vw,52px)]">
+          Комплексный маркетинг
+        </h2>
       </Reveal>
 
-      <div className="mt-10 grid grid-cols-1 gap-5 md:mt-12 lg:grid-cols-2 lg:gap-6">
+      <div className="mt-12 grid grid-cols-1 gap-5 md:mt-14 lg:grid-cols-2 lg:gap-6">
         {packages.map((p, i) => (
           <Reveal key={p.title} index={i} className="h-full">
             {/* flex column + mt-auto on the price pins both prices to the same bottom line */}
             <article className="flex h-full flex-col border border-border bg-background p-7 md:p-10 lg:p-12">
-              <h2 className="font-primary text-[length:clamp(24px,2.2vw,30px)] font-light leading-[1.15] tracking-[-0.015em] text-[#161616]">
+              <h3 className="font-primary text-[length:clamp(24px,2.2vw,30px)] font-light leading-[1.15] tracking-[-0.015em] text-[#161616]">
                 {p.title}
-              </h2>
+              </h3>
               <ul className="mt-8 divide-y divide-border md:mt-10">
                 {p.items.map((item) => (
                   <li key={item} className="py-3.5 text-[15px] font-normal leading-[1.5] text-foreground/80 md:text-base">
