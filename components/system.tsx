@@ -22,7 +22,7 @@ export function MarketingSystem() {
           {flow.map((step) => (
             <div
               key={step}
-              className="flex flex-1 items-center gap-4 px-6 py-7 md:flex-col md:items-start md:gap-6 md:px-6 md:py-10"
+              className="flex flex-1 items-center px-6 py-7 md:py-10"
             >
               <span className="text-base font-medium uppercase tracking-ui md:text-lg">
                 {step}

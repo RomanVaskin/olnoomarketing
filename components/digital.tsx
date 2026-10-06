@@ -68,7 +68,7 @@ function Visual({ type }: { type: string }) {
           {['до 150 м²', 'у леса', '2 этажа', 'участок 10', 'с террасой'].map((t) => (
             <span
               key={t}
-              className="rounded-full border border-border px-3 py-1 font-mono text-[10px] text-muted-foreground"
+              className="rounded-full border border-border px-3 py-1 font-primary text-[10px] text-muted-foreground"
             >
               {t}
             </span>
@@ -114,7 +114,7 @@ export function Digital() {
       <div className="mx-auto max-w-[1400px] px-5 py-24 md:px-10 md:py-32">
         <Reveal>
           <SectionLabel>Digital</SectionLabel>
-          <h2 className="mt-6 max-w-5xl font-mono text-balance text-[length:min(calc((100vw_-_2.5rem)/15.5),24px)] font-light leading-[1.25] tracking-[0.04em] text-[#161616] md:text-[length:min(calc((100vw_-_5rem)/16.5),34px)] md:tracking-[0.08em] lg:text-[length:clamp(34px,3.2vw,52px)] lg:tracking-[0.1em]">
+          <h2 className="mt-6 max-w-5xl font-primary text-balance text-[length:min(calc((100vw_-_2.5rem)/15.5),24px)] font-light leading-[1.1] tracking-display text-[#161616] md:text-[length:min(calc((100vw_-_5rem)/16.5),34px)] lg:text-[length:clamp(34px,3.2vw,52px)]">
             Цифровая инфраструктура продаж
           </h2>
           <p className="mt-6 max-w-2xl text-pretty text-base leading-relaxed text-muted-foreground md:text-lg">
@@ -132,7 +132,7 @@ export function Digital() {
                     <Visual type={t.visual} />
                   </div>
                 </div>
-                <h3 className="mt-6 text-lg font-mono font-light leading-snug tracking-[0.04em] text-[#161616]">{t.title}</h3>
+                <h3 className="mt-6 text-lg font-primary font-light leading-[1.25] tracking-subheading text-[#161616]">{t.title}</h3>
                 <p className="mt-3 text-sm leading-relaxed text-muted-foreground">{t.text}</p>
               </div>
             </Reveal>
