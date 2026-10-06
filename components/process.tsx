@@ -1,4 +1,4 @@
-import { DashHeading } from './dash-heading'
+import { ProcessHeading } from './process-heading'
 import { Reveal } from './reveal'
 
 const steps = [
@@ -20,11 +20,11 @@ export function Process() {
   return (
     <section id="process" className="mx-auto max-w-[1400px] px-5 pt-20 md:px-10 md:pt-28">
       <Reveal>
-        <DashHeading>
+        <ProcessHeading>
           От анализа проекта
           <br />
           до масштабирования продаж
-        </DashHeading>
+        </ProcessHeading>
       </Reveal>
 
       <ol className="mt-14 grid grid-cols-1 md:mt-20 md:grid-cols-5">

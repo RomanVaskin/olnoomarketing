@@ -1,4 +1,4 @@
-import { DashHeading } from './dash-heading'
+import { ProcessHeading } from './process-heading'
 import { Reveal } from './reveal'
 
 const flow = [
@@ -37,11 +37,11 @@ export function Results() {
     <section id="results" className="mx-auto max-w-[1400px] px-5 pb-20 md:px-10 md:pb-24">
       <div className="mt-20 border-t border-black/18 pt-20 md:mt-28 md:pt-28">
         <Reveal>
-          <DashHeading>
+          <ProcessHeading>
             Считаем не показы.
             <br />
             Считаем движение к сделке.
-          </DashHeading>
+          </ProcessHeading>
           <p className="mt-8 max-w-2xl text-pretty text-base leading-relaxed text-muted-foreground md:mt-10 md:text-lg">
             Маркетинг оценивается не количеством трафика, а его вкладом в продажи проекта.
           </p>
