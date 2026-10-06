@@ -1,7 +1,7 @@
 import type { Metadata } from 'next'
 import Link from 'next/link'
 import { SiteHeader } from '@/components/site-header'
-import { SectionLabel } from '@/components/section-label'
+import { PageEyebrow } from '@/components/page-eyebrow'
 import { Process } from '@/components/process'
 import { Results } from '@/components/results'
 import { SiteFooter } from '@/components/site-footer'
@@ -20,7 +20,7 @@ export default function ProcessPage() {
       <main className="font-primary tracking-body">
         <section id="top" className="mx-auto max-w-[1400px] px-5 pb-16 pt-28 md:px-10 md:pb-20 md:pt-36">
           <div className="fade-up">
-            <SectionLabel>AURE AGENCY / Процесс</SectionLabel>
+            <PageEyebrow title="Процесс" />
             <h1 className="mt-6 max-w-5xl font-primary text-balance text-[length:min(calc((100vw_-_2.5rem)/15.5),24px)] font-light leading-[1.1] tracking-display text-[#161616] md:text-[length:min(calc((100vw_-_5rem)/16.5),34px)] lg:text-[length:clamp(34px,3.2vw,52px)]">
               Как устроен процесс продвижения
             </h1>

@@ -1,7 +1,7 @@
 'use client'
 
 import { Reveal } from './reveal'
-import { SectionLabel } from './section-label'
+import { PageEyebrow } from './page-eyebrow'
 import { ctaButtonClass, ctaButtonOutlineClass } from './services-cta'
 import { TELEGRAM_URL, WHATSAPP_URL } from '@/lib/contacts'
 
@@ -13,10 +13,10 @@ const messengers = [
 export function FinalCta() {
   return (
     <section id="contact" className="border-t border-border">
-      <div className="mx-auto max-w-[1400px] px-5 py-24 md:px-10 md:py-32">
+      <div className="mx-auto max-w-[1400px] px-5 pb-24 pt-28 md:px-10 md:pb-32 md:pt-36">
         <Reveal className="grid gap-14 md:grid-cols-2 md:gap-20">
           <div>
-            <SectionLabel>Next step</SectionLabel>
+            <PageEyebrow title="Контакты" />
             <h2 className="mt-6 max-w-5xl font-primary text-balance text-[length:min(calc((100vw_-_2.5rem)/15.5),24px)] font-light leading-[1.1] tracking-display text-[#161616] md:text-[length:min(calc((100vw_-_5rem)/16.5),34px)] lg:text-[length:clamp(34px,3.2vw,52px)]">
               Обсудим ваш проект.
             </h2>
