@@ -16,11 +16,11 @@ export function ServicesList() {
         {directions.map((title, i) => (
           <li key={title}>
             <Reveal index={i}>
-              <div className="grid grid-cols-[48px_1fr] items-baseline gap-x-4 border-b border-border py-8 md:grid-cols-[120px_1fr] md:gap-x-10 lg:grid-cols-[260px_1fr] md:py-10">
-                <span className="font-primary text-[13px] tracking-label text-muted-foreground">
+              <div className="grid grid-cols-[45px_1fr] items-center gap-x-3 border-b border-border py-[26px] md:grid-cols-[96px_1fr] md:gap-x-10 md:py-[34px] lg:grid-cols-[180px_1fr]">
+                <span className="font-primary text-[13px] font-normal tracking-[0.18em] text-muted-foreground">
                   {String(i + 1).padStart(2, '0')}
                 </span>
-                <h2 className="font-primary text-xl font-light leading-[1.25] tracking-subheading text-[#161616] md:text-2xl lg:text-[28px]">
+                <h2 className="font-primary text-[20px] font-light leading-[1.15] tracking-[-0.015em] text-[#161616] md:text-[length:clamp(22px,1.9vw,26px)]">
                   {title}
                 </h2>
               </div>
