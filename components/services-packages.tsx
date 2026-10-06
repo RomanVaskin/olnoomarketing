@@ -1,5 +1,6 @@
 import { Reveal } from './reveal'
 import { BrokerageInfographics } from './brokerage-infographics'
+import { FocusCard } from './focus-card'
 
 const packages = [
   {
@@ -77,7 +78,7 @@ export function ServicesPackages() {
         {packages.map((p, i) => (
           <Reveal key={p.title} index={i} className="h-full">
             {/* flex column + mt-auto on the price pins both prices to the same bottom line */}
-            <article className="package-card flex h-full flex-col rounded-[16px] bg-[#F3F3F1] p-7 md:rounded-[18px] md:p-9 lg:p-11">
+            <FocusCard className="package-card flex h-full flex-col rounded-[16px] bg-[#F3F3F1] p-7 md:rounded-[18px] md:p-9 lg:p-11">
               <h3 className="font-primary text-[19px] font-light leading-[1.15] tracking-[-0.015em] text-[#161616] md:text-[22px] lg:text-[length:clamp(22px,1.8vw,26px)]">
                 {p.title}
               </h3>
@@ -97,7 +98,7 @@ export function ServicesPackages() {
                   <span className="ml-2 text-base text-muted-foreground">/ месяц</span>
                 </p>
               </div>
-            </article>
+            </FocusCard>
           </Reveal>
         ))}
       </div>
