@@ -1,4 +1,3 @@
-import { SectionLabel } from './section-label'
 import { Reveal } from './reveal'
 
 const packages = [
@@ -44,24 +43,35 @@ const notes = [
   },
 ]
 
+/** Section subheading one level below the page H1, led by a short black rule. */
+function SectionSubheading({ children }: { children: string }) {
+  return (
+    <h2 className="flex items-center gap-3 font-primary text-[20px] font-light leading-[1.15] tracking-[-0.015em] text-[#161616] before:h-px before:w-6 before:shrink-0 before:bg-foreground before:content-[''] md:gap-4 md:text-[24px] md:before:w-[30px] lg:text-[length:clamp(24px,2.2vw,36px)]">
+      {children}
+    </h2>
+  )
+}
+
+/** Shared figure style for package prices and the brokerage fee. */
+const figureClass =
+  'font-primary text-[20px] font-light leading-none tracking-[-0.015em] text-[#161616] md:text-[length:clamp(22px,1.7vw,24px)]'
+
 export function ServicesPackages() {
   return (
     <section id="formats" className="mx-auto max-w-[1400px] px-5 pb-24 md:px-10 md:pb-32">
       <Reveal className="border-t border-foreground pt-12 md:pt-14">
-        <h2 className="font-primary text-[length:min(calc((100vw_-_2.5rem)/15.5),24px)] font-light leading-[1.1] tracking-display text-[#161616] md:text-[length:min(calc((100vw_-_5rem)/16.5),34px)] lg:text-[length:clamp(34px,3.2vw,52px)]">
-          Комплексный маркетинг
-        </h2>
+        <SectionSubheading>Комплексный маркетинг</SectionSubheading>
       </Reveal>
 
-      <div className="mt-12 grid grid-cols-1 gap-5 md:mt-14 lg:grid-cols-2 lg:gap-6">
+      <div className="mt-9 grid grid-cols-1 gap-4 md:mt-10 md:grid-cols-2 md:gap-5 lg:gap-6">
         {packages.map((p, i) => (
           <Reveal key={p.title} index={i} className="h-full">
             {/* flex column + mt-auto on the price pins both prices to the same bottom line */}
-            <article className="flex h-full flex-col border border-border bg-background p-7 md:p-10 lg:p-12">
-              <h3 className="font-primary text-[length:clamp(24px,2.2vw,30px)] font-light leading-[1.15] tracking-[-0.015em] text-[#161616]">
+            <article className="flex h-full flex-col rounded-[16px] bg-[#F3F3F1] p-7 md:rounded-[18px] md:p-9 lg:p-11">
+              <h3 className="font-primary text-[19px] font-light leading-[1.15] tracking-[-0.015em] text-[#161616] md:text-[22px] lg:text-[length:clamp(22px,1.8vw,26px)]">
                 {p.title}
               </h3>
-              <ul className="mt-8 divide-y divide-border md:mt-10">
+              <ul className="mt-7 divide-y divide-black/10 md:mt-8">
                 {p.items.map((item) => (
                   <li key={item} className="py-3.5 text-[15px] font-normal leading-[1.5] text-foreground/80 md:text-base">
                     {item}
@@ -69,7 +79,7 @@ export function ServicesPackages() {
                 ))}
               </ul>
               <div className="mt-auto pt-10 md:pt-12">
-                <p className="border-t border-border pt-7 font-primary text-[length:clamp(24px,2vw,28px)] font-light leading-none tracking-[-0.015em] text-[#161616]">
+                <p className={`border-t border-black/10 pt-7 ${figureClass}`}>
                   от{'\u00a0'}{p.price}
                   <span className="ml-2 text-base text-muted-foreground">/ месяц</span>
                 </p>
@@ -79,38 +89,33 @@ export function ServicesPackages() {
         ))}
       </div>
 
-      <div className="mt-24 border-t border-border md:mt-32">
-        {notes.map((n) => (
-          <Reveal key={n.label}>
-            <div className="grid grid-cols-1 gap-y-6 border-b border-border py-12 md:py-16 lg:grid-cols-[320px_1fr] lg:gap-x-10">
-              <div className="lg:pt-2">
-                <SectionLabel>{n.label}</SectionLabel>
-              </div>
-              <div>
-                {n.title && (
-                  <h2 className="font-primary text-[length:clamp(24px,2.4vw,34px)] font-light leading-[1.15] tracking-display text-[#161616]">
-                    {n.title}
-                  </h2>
-                )}
-                <p
-                  className={`max-w-2xl text-pretty text-base leading-relaxed text-muted-foreground md:text-lg ${n.title ? 'mt-5' : ''}`}
-                >
-                  {n.text}
+      {notes.map((n, i) => (
+        <Reveal
+          key={n.label}
+          className={`border-t border-foreground pt-12 md:pt-14 ${i === 0 ? 'mt-20 md:mt-24' : 'mt-16 md:mt-20'}`}
+        >
+          <SectionSubheading>{n.label}</SectionSubheading>
+          <div className="mt-7 max-w-2xl">
+            {n.title && (
+              <h3 className="font-primary text-[19px] font-light leading-[1.15] tracking-[-0.015em] text-[#161616] md:text-[22px] lg:text-[length:clamp(22px,1.8vw,26px)]">
+                {n.title}
+              </h3>
+            )}
+            <p className={`text-pretty text-base leading-relaxed text-muted-foreground md:text-lg ${n.title ? 'mt-4' : ''}`}>
+              {n.text}
+            </p>
+            {n.fee && (
+              <div className="mt-8 border-t border-border pt-6 md:mt-10">
+                <p className="text-base leading-relaxed text-foreground/80 md:text-lg">{n.fee.text}</p>
+                <p className={`mt-3 ${figureClass}`}>
+                  {n.fee.rate}
+                  <span className="ml-2 text-base text-muted-foreground">{n.fee.unit}</span>
                 </p>
-                {n.fee && (
-                  <div className="mt-8 max-w-2xl border-t border-border pt-6 md:mt-10">
-                    <p className="text-base leading-relaxed text-foreground/80 md:text-lg">{n.fee.text}</p>
-                    <p className="mt-3 font-primary text-[length:clamp(24px,2vw,28px)] font-light leading-none tracking-[-0.015em] text-[#161616]">
-                      {n.fee.rate}
-                      <span className="ml-2 text-base text-muted-foreground">{n.fee.unit}</span>
-                    </p>
-                  </div>
-                )}
               </div>
-            </div>
-          </Reveal>
-        ))}
-      </div>
+            )}
+          </div>
+        </Reveal>
+      ))}
     </section>
   )
 }
