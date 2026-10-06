@@ -32,14 +32,14 @@ const packages = [
 
 const notes = [
   {
+    label: 'Дополнительные услуги',
+    text: 'Публикации и работа со СМИ, организация закрытых продаж и мероприятий, разработка и производство комплиментарных сетов, подготовка и запуск видеопродакшна, дизайн и размещение наружной рекламы, участие в отраслевых выставках.',
+  },
+  {
     label: 'Брокеридж',
     title: 'Продажа загородной недвижимости',
     text: 'Продажа загородной недвижимости с полным сопровождением — от стратегии выхода на рынок и поиска покупателя до переговоров и закрытия сделки.',
     fee: { text: 'Подключаем наш внешний отдел продаж', rate: '2–7%', unit: 'от сделки' },
-  },
-  {
-    label: 'Дополнительные услуги',
-    text: 'Публикации и работа со СМИ, организация закрытых продаж и мероприятий, разработка и производство комплиментарных сетов, подготовка и запуск видеопродакшна, дизайн и размещение наружной рекламы, участие в отраслевых выставках.',
   },
 ]
 
@@ -63,12 +63,12 @@ export function ServicesPackages() {
         <SectionSubheading>Комплексный маркетинг</SectionSubheading>
       </Reveal>
 
-      <div className="mt-9 grid grid-cols-1 gap-4 md:mt-10 md:grid-cols-2 md:gap-5 lg:gap-6">
+      <div className="mx-auto mt-9 grid max-w-[1080px] grid-cols-1 gap-4 md:mt-10 md:grid-cols-2 md:gap-8 lg:gap-11">
         {packages.map((p, i) => (
           <Reveal key={p.title} index={i} className="h-full">
             {/* flex column + mt-auto on the price pins both prices to the same bottom line */}
             <article className="flex h-full flex-col rounded-[16px] bg-[#F3F3F1] p-7 md:rounded-[18px] md:p-9 lg:p-11">
-              <h3 className="font-primary text-[19px] font-light leading-[1.15] tracking-[-0.015em] text-[#161616] md:text-[22px] lg:text-[length:clamp(22px,1.8vw,26px)]">
+              <h3 className="font-primary text-[19px] font-medium leading-[1.15] tracking-[-0.015em] text-[#161616] md:text-[22px] lg:text-[length:clamp(22px,1.8vw,26px)]">
                 {p.title}
               </h3>
               <ul className="mt-7 divide-y divide-black/10 md:mt-8">
@@ -92,16 +92,17 @@ export function ServicesPackages() {
       {notes.map((n, i) => (
         <Reveal
           key={n.label}
-          className={`border-t border-foreground pt-12 md:pt-14 ${i === 0 ? 'mt-20 md:mt-24' : 'mt-16 md:mt-20'}`}
+          // Дополнительные услуги follow the cards directly; Брокеридж opens with the black rule.
+          className={i === 0 ? 'mt-[72px] md:mt-20' : 'mt-20 border-t border-foreground pt-12 md:mt-24 md:pt-14'}
         >
           <SectionSubheading>{n.label}</SectionSubheading>
-          <div className="mt-7 max-w-2xl">
+          <div className={`mt-7 ${n.title ? 'max-w-2xl' : 'max-w-[860px]'}`}>
             {n.title && (
               <h3 className="font-primary text-[19px] font-light leading-[1.15] tracking-[-0.015em] text-[#161616] md:text-[22px] lg:text-[length:clamp(22px,1.8vw,26px)]">
                 {n.title}
               </h3>
             )}
-            <p className={`text-pretty text-base leading-relaxed text-muted-foreground md:text-lg ${n.title ? 'mt-4' : ''}`}>
+            <p className={`text-pretty text-base text-muted-foreground md:text-lg ${n.title ? 'mt-4 leading-relaxed' : 'leading-[1.6]'}`}>
               {n.text}
             </p>
             {n.fee && (
