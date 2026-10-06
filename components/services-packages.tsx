@@ -44,9 +44,9 @@ const notes = [
 ]
 
 /** Section subheading one level below the page H1, led by a short black rule. */
-function SectionSubheading({ children }: { children: string }) {
+function SectionSubheading({ children, strong = false }: { children: string; strong?: boolean }) {
   return (
-    <h2 className="flex items-center gap-3 font-primary text-[20px] font-light leading-[1.15] tracking-[-0.015em] text-[#161616] before:h-px before:w-6 before:shrink-0 before:bg-foreground before:content-[''] md:gap-4 md:text-[24px] md:before:w-[30px] lg:text-[length:clamp(24px,2.2vw,36px)]">
+    <h2 className={`flex items-center gap-3 font-primary text-[20px] ${strong ? 'font-medium' : 'font-light'} leading-[1.15] tracking-[-0.015em] text-[#161616] before:h-px before:w-6 before:shrink-0 before:bg-foreground before:content-[''] md:gap-4 md:text-[24px] md:before:w-[30px] lg:text-[length:clamp(24px,2.2vw,36px)]`}>
       {children}
     </h2>
   )
@@ -60,7 +60,7 @@ export function ServicesPackages() {
   return (
     <section id="formats" className="mx-auto max-w-[1400px] px-5 pb-24 md:px-10 md:pb-32">
       <Reveal className="border-t border-foreground pt-12 md:pt-14">
-        <SectionSubheading>Комплексный маркетинг</SectionSubheading>
+        <SectionSubheading strong>Комплексный маркетинг</SectionSubheading>
       </Reveal>
 
       <div className="mx-auto mt-9 grid max-w-[1080px] grid-cols-1 gap-4 md:mt-10 md:grid-cols-2 md:gap-8 lg:gap-11">
@@ -68,12 +68,15 @@ export function ServicesPackages() {
           <Reveal key={p.title} index={i} className="h-full">
             {/* flex column + mt-auto on the price pins both prices to the same bottom line */}
             <article className="flex h-full flex-col rounded-[16px] bg-[#F3F3F1] p-7 md:rounded-[18px] md:p-9 lg:p-11">
-              <h3 className="font-primary text-[19px] font-medium leading-[1.15] tracking-[-0.015em] text-[#161616] md:text-[22px] lg:text-[length:clamp(22px,1.8vw,26px)]">
+              <h3 className="font-primary text-[19px] font-light leading-[1.15] tracking-[-0.015em] text-[#161616] md:text-[22px] lg:text-[length:clamp(22px,1.8vw,26px)]">
                 {p.title}
               </h3>
-              <ul className="mt-7 divide-y divide-black/10 md:mt-8">
+              <ul className="mt-7 md:mt-8">
                 {p.items.map((item) => (
-                  <li key={item} className="py-3.5 text-[15px] font-normal leading-[1.5] text-foreground/80 md:text-base">
+                  <li
+                    key={item}
+                    className="flex items-start gap-3 py-3.5 text-[15px] font-normal leading-[1.5] text-foreground/80 before:mt-[calc(0.75em-3px)] before:size-1.5 before:shrink-0 before:rounded-full before:bg-[#111] before:content-[''] md:text-base"
+                  >
                     {item}
                   </li>
                 ))}
