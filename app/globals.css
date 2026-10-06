@@ -210,6 +210,30 @@
     }
   }
 
+  /* Brokerage infographic cards (components/brokerage-infographics.tsx).
+     Only on real hover devices: muted at rest, lifted to full colour on hover.
+     Touch screens keep the image in its normal colours with no movement. */
+  .infographic-card {
+    transition:
+      transform 500ms cubic-bezier(0.22, 1, 0.36, 1),
+      filter 500ms ease,
+      opacity 500ms ease,
+      box-shadow 500ms ease;
+  }
+  @media (hover: hover) and (pointer: fine) {
+    .infographic-card {
+      filter: grayscale(55%) saturate(55%) brightness(0.82) contrast(0.94);
+      opacity: 0.9;
+      box-shadow: 0 6px 18px rgba(0, 0, 0, 0.025);
+    }
+    .infographic-card:hover {
+      filter: grayscale(0%) saturate(100%) brightness(1) contrast(1);
+      opacity: 1;
+      transform: translateY(-6px) scale(1.025);
+      box-shadow: 0 18px 40px rgba(0, 0, 0, 0.08);
+    }
+  }
+
   /* Scroll-triggered reveal, used by components/reveal.tsx */
   .reveal {
     opacity: 0;
@@ -233,6 +257,10 @@
       opacity: 1;
       transform: none;
       transition: none;
+    }
+    .infographic-card,
+    .infographic-card:hover {
+      transform: none;
     }
   }
 }

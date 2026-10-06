@@ -36,7 +36,7 @@ export function BrokerageInfographics() {
     <div className="mt-14 grid grid-cols-1 gap-5 md:mt-16 md:grid-cols-2 md:gap-6 lg:grid-cols-3">
       {infographics.map((item, i) => (
         <Reveal key={item.label} index={i}>
-          <div className={`relative w-full overflow-hidden rounded-[18px] ${SLOT_ASPECT}`}>
+          <div className={`relative w-full overflow-hidden rounded-[18px] ${SLOT_ASPECT} ${item.src ? 'infographic-card' : ''}`}>
             {item.src ? (
               <Image
                 src={item.src}
