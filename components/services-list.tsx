@@ -11,7 +11,7 @@ const directions = [
 
 export function ServicesList() {
   return (
-    <section id="services-list" className="mx-auto max-w-[1400px] px-5 pb-24 md:px-10 md:pb-32">
+    <section id="services-list" className="mx-auto max-w-[1400px] px-5 pb-14 md:px-10 md:pb-16">
       <ol className="border-t border-border">
         {directions.map((title, i) => (
           <li key={title}>
