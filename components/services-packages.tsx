@@ -30,16 +30,16 @@ const packages = [
   },
 ]
 
-const notes = [
+const notes: { label: string; text: string; extra?: string; fee?: string }[] = [
   {
     label: 'Дополнительные услуги',
     text: 'Публикации и работа со СМИ, организация закрытых продаж и мероприятий, разработка и производство комплиментарных сетов, подготовка и запуск видеопродакшна, дизайн и размещение наружной рекламы, участие в отраслевых выставках.',
   },
   {
     label: 'Брокеридж',
-    title: 'Продажа загородной недвижимости',
     text: 'Продажа загородной недвижимости с полным сопровождением — от стратегии выхода на рынок и поиска покупателя до переговоров и закрытия сделки.',
-    fee: { text: 'Подключаем наш внешний отдел продаж', rate: '2–7%', unit: 'от сделки' },
+    extra: 'Подключаем наш внешний отдел продаж',
+    fee: '2–7% от сделки',
   },
 ]
 
@@ -59,7 +59,7 @@ function SectionSubheading({ children, strong = false }: { children: string; str
   return <h2 className={`${subheadingBase} ${strong ? subheadingStrong : subheadingRegular}`}>{children}</h2>
 }
 
-/** Shared figure style for package prices and the brokerage fee. */
+/** Figure style for package prices. */
 const figureClass =
   'font-primary text-[20px] font-light leading-none tracking-[-0.015em] text-[#161616] md:text-[length:clamp(22px,1.7vw,24px)]'
 
@@ -106,23 +106,20 @@ export function ServicesPackages() {
           className={i === 0 ? 'mt-[72px] md:mt-20' : 'mt-20 border-t border-foreground pt-12 md:mt-24 md:pt-14'}
         >
           <SectionSubheading>{n.label}</SectionSubheading>
-          <div className={`mt-7 ${n.title ? 'max-w-2xl' : 'max-w-[860px]'}`}>
-            {n.title && (
-              <h3 className="font-primary text-[19px] font-light leading-[1.15] tracking-[-0.015em] text-[#161616] md:text-[22px] lg:text-[length:clamp(22px,1.8vw,26px)]">
-                {n.title}
-              </h3>
-            )}
-            <p className={`text-pretty text-base text-muted-foreground md:text-lg ${n.title ? 'mt-4 leading-relaxed' : 'leading-[1.6]'}`}>
+          <div className="mt-7 max-w-[860px]">
+            <p className="text-pretty text-base leading-[1.6] text-muted-foreground md:text-lg">
               {n.text}
+              {n.extra && (
+                <>
+                  <br />
+                  {n.extra}
+                </>
+              )}
             </p>
             {n.fee && (
-              <div className="mt-8 border-t border-border pt-6 md:mt-10">
-                <p className="text-base leading-relaxed text-foreground/80 md:text-lg">{n.fee.text}</p>
-                <p className={`mt-3 ${figureClass}`}>
-                  {n.fee.rate}
-                  <span className="ml-2 text-base text-muted-foreground">{n.fee.unit}</span>
-                </p>
-              </div>
+              <p className="mt-7 font-primary text-[22px] font-normal leading-[1.2] tracking-[-0.01em] text-[#161616] md:text-[24px]">
+                {n.fee}
+              </p>
             )}
           </div>
         </Reveal>
