@@ -1,4 +1,5 @@
 import { Reveal } from './reveal'
+import { BrokerageInfographics } from './brokerage-infographics'
 
 const packages = [
   {
@@ -67,7 +68,7 @@ const figureClass =
 
 export function ServicesPackages() {
   return (
-    <section id="formats" className="mx-auto max-w-[1400px] px-5 pb-24 md:px-10 md:pb-32">
+    <section id="formats" className="mx-auto max-w-[1400px] px-5 pb-20 md:px-10 md:pb-24">
       <Reveal className="border-t border-foreground pt-12 md:pt-14">
         <SectionSubheading strong>Комплексный маркетинг</SectionSubheading>
       </Reveal>
@@ -126,6 +127,8 @@ export function ServicesPackages() {
           </div>
         </Reveal>
       ))}
+
+      <BrokerageInfographics />
     </section>
   )
 }
