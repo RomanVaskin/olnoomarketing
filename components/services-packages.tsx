@@ -36,6 +36,7 @@ const notes = [
     label: 'Брокеридж',
     title: 'Продажа загородной недвижимости',
     text: 'Продажа загородной недвижимости с полным сопровождением — от стратегии выхода на рынок и поиска покупателя до переговоров и закрытия сделки.',
+    fee: { text: 'Подключаем наш внешний отдел продаж', rate: '2–7%', unit: 'от сделки' },
   },
   {
     label: 'Дополнительные услуги',
@@ -96,6 +97,15 @@ export function ServicesPackages() {
                 >
                   {n.text}
                 </p>
+                {n.fee && (
+                  <div className="mt-8 max-w-2xl border-t border-border pt-6 md:mt-10">
+                    <p className="text-base leading-relaxed text-foreground/80 md:text-lg">{n.fee.text}</p>
+                    <p className="mt-3 font-primary text-[length:clamp(24px,2vw,28px)] font-light leading-none tracking-[-0.015em] text-[#161616]">
+                      {n.fee.rate}
+                      <span className="ml-2 text-base text-muted-foreground">{n.fee.unit}</span>
+                    </p>
+                  </div>
+                )}
               </div>
             </div>
           </Reveal>
