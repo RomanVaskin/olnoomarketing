@@ -13,7 +13,7 @@ export default function ContactPage() {
   return (
     <>
       <SiteHeader />
-      <main>
+      <main className="font-primary tracking-body">
         <FinalCta />
       </main>
       <SiteFooter />

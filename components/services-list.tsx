@@ -17,10 +17,10 @@ export function ServicesList() {
           <li key={title}>
             <Reveal index={i}>
               <div className="grid grid-cols-[48px_1fr] items-baseline gap-x-4 border-b border-border py-8 md:grid-cols-[120px_1fr] md:gap-x-10 lg:grid-cols-[260px_1fr] md:py-10">
-                <span className="font-mono text-[13px] tracking-[0.2em] text-muted-foreground">
+                <span className="font-primary text-[13px] tracking-label text-muted-foreground">
                   {String(i + 1).padStart(2, '0')}
                 </span>
-                <h2 className="font-mono text-xl font-light leading-snug tracking-[0.04em] text-[#161616] md:text-2xl lg:text-[28px]">
+                <h2 className="font-primary text-xl font-light leading-[1.25] tracking-subheading text-[#161616] md:text-2xl lg:text-[28px]">
                   {title}
                 </h2>
               </div>

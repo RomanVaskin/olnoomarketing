@@ -5,11 +5,11 @@ const flow = ['Целевые обращения', 'Показы объекто�
 
 export function Results() {
   return (
-    <section id="results" className="mx-auto max-w-[1400px] px-5 py-24 md:px-10 md:py-32">
+    <section id="results" className="mx-auto max-w-[1400px] px-5 pb-20 pt-24 md:px-10 md:pb-24 md:pt-32">
       <Reveal>
         <SectionLabel>Результат</SectionLabel>
 
-        <h2 className="mt-8 max-w-5xl font-mono text-balance text-[length:min(calc((100vw_-_2.5rem)/15.5),24px)] font-light leading-[1.25] tracking-[0.04em] text-[#161616] md:text-[length:min(calc((100vw_-_5rem)/16.5),34px)] md:tracking-[0.08em] lg:text-[length:clamp(34px,3.2vw,52px)] lg:tracking-[0.1em]">
+        <h2 className="mt-8 max-w-5xl font-primary text-balance text-[length:min(calc((100vw_-_2.5rem)/15.5),24px)] font-light leading-[1.1] tracking-display text-[#161616] md:text-[length:min(calc((100vw_-_5rem)/16.5),34px)] lg:text-[length:clamp(34px,3.2vw,52px)]">
           Считаем не показы.
           <br />
           Считаем движение к сделке.
