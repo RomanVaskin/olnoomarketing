@@ -43,13 +43,20 @@ const notes = [
   },
 ]
 
+const subheadingBase =
+  "flex items-center font-primary text-[#161616] before:shrink-0 before:bg-foreground before:content-['']"
+
+/** Regular subheading: light, led by a thin 1px rule. */
+const subheadingRegular =
+  'gap-3 text-[20px] font-light leading-[1.15] tracking-[-0.015em] before:h-px before:w-6 md:gap-4 md:text-[24px] md:before:w-[30px] lg:text-[length:clamp(24px,2.2vw,36px)]'
+
+/** Lead subheading (Комплексный маркетинг): medium, ~12% larger, thick rounded 3px rule. */
+const subheadingStrong =
+  'gap-4 text-[21px] font-medium leading-[1.1] tracking-[-0.02em] before:h-[3px] before:w-7 before:rounded-full md:gap-[18px] md:text-[27px] md:before:w-9 lg:text-[length:clamp(27px,2.45vw,40px)]'
+
 /** Section subheading one level below the page H1, led by a short black rule. */
 function SectionSubheading({ children, strong = false }: { children: string; strong?: boolean }) {
-  return (
-    <h2 className={`flex items-center gap-3 font-primary text-[20px] ${strong ? 'font-medium' : 'font-light'} leading-[1.15] tracking-[-0.015em] text-[#161616] before:h-px before:w-6 before:shrink-0 before:bg-foreground before:content-[''] md:gap-4 md:text-[24px] md:before:w-[30px] lg:text-[length:clamp(24px,2.2vw,36px)]`}>
-      {children}
-    </h2>
-  )
+  return <h2 className={`${subheadingBase} ${strong ? subheadingStrong : subheadingRegular}`}>{children}</h2>
 }
 
 /** Shared figure style for package prices and the brokerage fee. */
@@ -75,7 +82,7 @@ export function ServicesPackages() {
                 {p.items.map((item) => (
                   <li
                     key={item}
-                    className="flex items-start gap-3 py-3.5 text-[15px] font-normal leading-[1.5] text-foreground/80 before:mt-[calc(0.75em-3px)] before:size-1.5 before:shrink-0 before:rounded-full before:bg-[#111] before:content-[''] md:text-base"
+                    className="flex items-start gap-3 border-b border-black/10 py-3.5 text-[15px] font-normal leading-[1.5] text-foreground/80 before:mt-[calc(0.75em-3px)] before:size-1.5 before:shrink-0 before:rounded-full before:bg-[#111] before:content-[''] md:text-base"
                   >
                     {item}
                   </li>
