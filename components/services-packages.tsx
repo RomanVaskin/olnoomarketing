@@ -45,7 +45,7 @@ const notes = [
 
 export function ServicesPackages() {
   return (
-    <section id="top" className="mx-auto max-w-[1400px] px-5 pb-24 pt-28 md:px-10 md:pb-32 md:pt-36">
+    <section id="formats" className="mx-auto max-w-[1400px] px-5 pb-24 md:px-10 md:pb-32">
       <Reveal>
         <SectionLabel>Форматы сотрудничества</SectionLabel>
       </Reveal>
@@ -67,7 +67,7 @@ export function ServicesPackages() {
               </ul>
               <div className="mt-auto pt-10 md:pt-12">
                 <p className="border-t border-border pt-7 font-primary text-[length:clamp(24px,2vw,28px)] font-light leading-none tracking-[-0.015em] text-[#161616]">
-                  {p.price}
+                  от{'\u00a0'}{p.price}
                   <span className="ml-2 text-base text-muted-foreground">/ месяц</span>
                 </p>
               </div>
