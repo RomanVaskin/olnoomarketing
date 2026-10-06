@@ -31,8 +31,8 @@ export default function ServicesPage() {
           </div>
         </section>
 
-        <ServicesList />
         <ServicesPackages />
+        <ServicesList />
       </main>
       <SiteFooter />
     </>
