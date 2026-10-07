@@ -12,6 +12,7 @@ const inter = Inter({
 })
 
 export const metadata: Metadata = {
+  metadataBase: new URL('https://aureagency.ru'),
   title: 'AURE AGENCY — Маркетинг загородной недвижимости',
   description:
     'AURE AGENCY — маркетинг и digital-рост для коттеджных посёлков, девелоперов и строительных компаний. Превращаем маркетинг в продажи.',

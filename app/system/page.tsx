@@ -6,6 +6,7 @@ import { Promotion } from '@/components/promotion'
 import { SiteFooter } from '@/components/site-footer'
 
 export const metadata: Metadata = {
+  alternates: { canonical: '/system' },
   title: 'Система — AURE AGENCY',
   description:
     'Единая цифровая среда для работы с рекламой, лидами, клиентами и продажами загородной недвижимости.',

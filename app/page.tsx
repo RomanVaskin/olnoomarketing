@@ -1,3 +1,4 @@
+import type { Metadata } from 'next'
 import { SiteHeader } from '@/components/site-header'
 import { Hero } from '@/components/hero'
 import { About } from '@/components/about'
@@ -7,6 +8,10 @@ import { Services } from '@/components/services'
 import { MarketingSystem } from '@/components/system'
 import { ContactsCta } from '@/components/contacts-cta'
 import { SiteFooter } from '@/components/site-footer'
+
+export const metadata: Metadata = {
+  alternates: { canonical: '/' },
+}
 
 export default function Page() {
   return (

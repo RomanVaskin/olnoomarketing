@@ -6,6 +6,7 @@ import { ServicesPackages } from '@/components/services-packages'
 import { SiteFooter } from '@/components/site-footer'
 
 export const metadata: Metadata = {
+  alternates: { canonical: '/services' },
   title: 'Услуги — AURE AGENCY | Маркетинг загородной недвижимости',
   description:
     'Маркетинг, упаковка, продвижение и система продаж проектов загородной недвижимости.',

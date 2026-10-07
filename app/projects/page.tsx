@@ -5,6 +5,7 @@ import { Projects } from '@/components/projects'
 import { SiteFooter } from '@/components/site-footer'
 
 export const metadata: Metadata = {
+  alternates: { canonical: '/projects' },
   title: 'Проекты — AURE AGENCY',
   description:
     'Примеры продвижения коттеджных посёлков, загородного девелопмента и продажи домов.',

@@ -17,9 +17,9 @@ export function FinalCta() {
         <Reveal className="grid gap-14 md:grid-cols-2 md:gap-20">
           <div>
             <PageEyebrow title="Контакты" />
-            <h2 className="mt-6 max-w-5xl font-primary text-balance text-[length:min(calc((100vw_-_2.5rem)/15.5),24px)] font-light leading-[1.1] tracking-display text-[#161616] md:text-[length:min(calc((100vw_-_5rem)/16.5),34px)] lg:text-[length:clamp(34px,3.2vw,52px)]">
+            <h1 className="mt-6 max-w-5xl font-primary text-balance text-[length:min(calc((100vw_-_2.5rem)/15.5),24px)] font-light leading-[1.1] tracking-display text-[#161616] md:text-[length:min(calc((100vw_-_5rem)/16.5),34px)] lg:text-[length:clamp(34px,3.2vw,52px)]">
               Обсудим ваш проект.
-            </h2>
+            </h1>
             <p className="mt-8 max-w-md text-pretty text-base leading-relaxed text-muted-foreground md:text-lg">
               Расскажите, что вы продаёте и на каком этапе находится проект. Мы посмотрим задачу и
               предложим самый короткий путь к росту продаж.

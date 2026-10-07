@@ -14,6 +14,7 @@ const PROCESS_CTA_IMAGE_SRC = '/process-cta.webp'
 const PROCESS_CTA_IMAGE_ALT = 'Загородный дом с бассейном у озера в вечернем освещении'
 
 export const metadata: Metadata = {
+  alternates: { canonical: '/process' },
   title: 'Процесс — AURE AGENCY',
   description:
     'Как мы выстраиваем продвижение загородной недвижимости — от анализа проекта до масштабирования продаж и измеримого результата.',
