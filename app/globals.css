@@ -378,6 +378,17 @@
       transform: scale(1.04);
     }
   }
+  /* Touch, from 640px (iPad): the same open state, set by the first tap. */
+  @media (min-width: 640px) {
+    .svc-gallery .svc-item.is-active {
+      flex-grow: 1.45;
+      translate: 0 -4px;
+      box-shadow: 0 16px 35px rgba(0, 0, 0, 0.045);
+    }
+    .svc-gallery .svc-item.is-active .svc-img {
+      transform: scale(1.04);
+    }
+  }
 
   /* Scroll-triggered reveal, used by components/reveal.tsx */
   .reveal {
@@ -412,8 +423,10 @@
     }
     .svc-gallery .svc-item,
     .svc-gallery .svc-item:hover,
+    .svc-gallery .svc-item.is-active,
     .svc-gallery .svc-img,
-    .svc-gallery .svc-item:hover .svc-img {
+    .svc-gallery .svc-item:hover .svc-img,
+    .svc-gallery .svc-item.is-active .svc-img {
       opacity: 1;
       transform: none;
       translate: none;
