@@ -1,10 +1,10 @@
-import Image from 'next/image'
 import { SectionLabel } from './section-label'
 import { Reveal } from './reveal'
 
-const ABOUT_IMAGE_SRC = '/aure-agency-who-we-are-marketing.webp'
-const ABOUT_IMAGE_ALT =
-  'Рабочее пространство отдела маркетинга: стол с ноутбуком, архитектурными планами и флипчартом со схемами'
+const ABOUT_VIDEO_SRC = '/aure-agency-who-we-are.mp4'
+const ABOUT_VIDEO_POSTER = '/aure-agency-who-we-are-poster.jpg'
+const ABOUT_VIDEO_LABEL =
+  'Рабочее пространство отдела маркетинга у озера: стол с ноутбуком, архитектурными планами и флипчартом со схемами'
 
 export function About() {
   return (
@@ -32,13 +32,21 @@ export function About() {
 
         <Reveal index={1} className="h-full">
           <div className="relative aspect-[4/3] w-full overflow-hidden md:aspect-auto md:h-full md:min-h-[430px] lg:min-h-[500px]">
-            <Image
-              src={ABOUT_IMAGE_SRC}
-              alt={ABOUT_IMAGE_ALT}
-              fill
-              sizes="(min-width: 768px) 52vw, 100vw"
-              className="object-cover object-[70%_50%]"
-            />
+            {/* The clip carries a generator watermark in its bottom ~7%; the box is 10%
+                taller than the frame and top-anchored, so that strip stays out of view. */}
+            <div className="absolute inset-x-0 top-0 -bottom-[10%]">
+              <video
+                src={ABOUT_VIDEO_SRC}
+                poster={ABOUT_VIDEO_POSTER}
+                autoPlay
+                muted
+                loop
+                playsInline
+                preload="auto"
+                aria-label={ABOUT_VIDEO_LABEL}
+                className="block h-full w-full object-cover object-[65%_0%]"
+              />
+            </div>
           </div>
         </Reveal>
       </div>
