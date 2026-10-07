@@ -35,12 +35,14 @@ const packages = [
   },
 ]
 
-const notes: { label: string; text: string; extra?: string; fee?: string }[] = [
+const notes: { id: string; label: string; text: string; extra?: string; fee?: string }[] = [
   {
+    id: 'additional-services',
     label: 'Дополнительные услуги',
     text: 'Публикации и работа со СМИ, организация закрытых продаж и мероприятий, разработка и производство комплиментарных сетов, подготовка и запуск видеопродакшна, дизайн и размещение наружной рекламы, участие в отраслевых выставках.',
   },
   {
+    id: 'brokerage',
     label: 'Брокеридж',
     text: 'Продажа загородной недвижимости с полным сопровождением — от стратегии выхода на рынок и поиска покупателя до переговоров и закрытия сделки.',
     extra: 'Подключаем наш внешний отдел продаж',
@@ -74,7 +76,7 @@ const figureClass =
 
 export function ServicesPackages() {
   return (
-    <section id="formats" className="mx-auto max-w-[1400px] px-5 pb-20 md:px-10 md:pb-24">
+    <section id="complex-marketing" className="scroll-mt-16 mx-auto max-w-[1400px] px-5 pb-20 md:px-10 md:pb-24">
       {/* the rule draws in, then the title fades up — once, see .subheading-draw */}
       <InView className="border-t border-foreground pt-12 md:pt-14">
         <SectionSubheading strong>Комплексный маркетинг</SectionSubheading>
@@ -112,8 +114,9 @@ export function ServicesPackages() {
       {notes.map((n, i) => (
         <Reveal
           key={n.label}
+          id={n.id}
           // Дополнительные услуги follow the cards directly; Брокеридж opens with the black rule.
-          className={i === 0 ? 'mt-[72px] md:mt-20' : 'mt-20 border-t border-foreground pt-12 md:mt-24 md:pt-14'}
+          className={`scroll-mt-24 ${i === 0 ? 'mt-[72px] md:mt-20' : 'mt-20 border-t border-foreground pt-12 md:mt-24 md:pt-14'}`}
         >
           <SectionSubheading>{n.label}</SectionSubheading>
           <div className="mt-7 max-w-[860px]">
