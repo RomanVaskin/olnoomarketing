@@ -1,20 +1,21 @@
 import { Reveal } from './reveal'
 
+/** Each direction carries an anchor so other pages can link straight to it. */
 const directions = [
-  'Стратегия и позиционирование',
-  'Брендинг и упаковка проекта',
-  'Сайт и digital-инфраструктура',
-  'Продвижение и привлечение клиентов',
-  'Контент и визуальные коммуникации',
-  'Система продаж',
+  { id: 'strategy', title: 'Стратегия и позиционирование' },
+  { id: 'branding', title: 'Брендинг и упаковка проекта' },
+  { id: 'digital-infrastructure', title: 'Сайт и digital-инфраструктура' },
+  { id: 'promotion', title: 'Продвижение и привлечение клиентов' },
+  { id: 'content', title: 'Контент и визуальные коммуникации' },
+  { id: 'sales', title: 'Система продаж' },
 ]
 
 export function ServicesList() {
   return (
     <section id="services-list" className="mx-auto max-w-[1400px] px-5 pb-24 md:px-10 md:pb-32">
       <ol className="border-t border-border">
-        {directions.map((title, i) => (
-          <li key={title}>
+        {directions.map(({ id, title }, i) => (
+          <li key={id} id={id} className="scroll-mt-24">
             <Reveal index={i}>
               <div className="grid grid-cols-[45px_1fr] items-center gap-x-3 border-b border-border py-[26px] md:grid-cols-[96px_1fr] md:gap-x-10 md:py-[34px] lg:grid-cols-[180px_1fr]">
                 <span className="font-primary text-[13px] font-normal tracking-[0.18em] text-muted-foreground">

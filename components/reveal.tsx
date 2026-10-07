@@ -10,8 +10,11 @@ export function Reveal({
   children,
   index = 0,
   className,
+  id,
 }: {
   children: ReactNode
+  /** Optional anchor id for in-page links. */
+  id?: string
   /** Position within a group of siblings, used for a small stagger delay. */
   index?: number
   className?: string
@@ -22,6 +25,7 @@ export function Reveal({
   return (
     <div
       ref={ref}
+      id={id}
       className={`reveal ${inView ? 'reveal-visible' : ''} ${className ?? ''}`}
       style={{ transitionDelay: inView ? `${delay}ms` : undefined }}
     >

@@ -5,44 +5,49 @@ import Image from 'next/image'
 import Link from 'next/link'
 import { InView } from './in-view'
 
-/** No per-direction anchors exist on /services yet, so every image opens the page itself. */
-const SERVICES_HREF = '/services'
-
+/** Order matches the photos; each opens its section on /services. */
 const images = [
   {
     src: '/aure-agency-who-we-are-marketing.webp',
-    alt: 'Аналитика: рабочий стол с ноутбуком и флипчарт с графиками',
+    caption: 'Уникальный Estate-CRM',
+    href: '/services#digital-infrastructure',
     className: 'object-[70%_50%]',
   },
   {
     src: '/aure-services-02-branding.webp',
-    alt: 'Брендинг и упаковка: буклеты проекта и образцы материалов',
+    caption: 'Брокеридж 2–7%',
+    href: '/services#brokerage',
     className: 'object-center',
   },
   {
     src: '/aure-services-03-strategy.webp',
-    alt: 'Стратегия продвижения: флипчарт со схемами и графиками',
+    caption: 'SEO / SMM / Digital',
+    href: '/services#promotion',
     className: 'object-center',
   },
   {
     src: '/aure-services-04-sales.webp',
-    alt: 'Продажи: переговорная с видом на озеро и материалами проекта',
+    caption: 'Комплексный маркетинг',
+    href: '/services#complex-marketing',
     className: 'object-center',
   },
 ]
 
-/** Touch screens wide enough for the one-row layout (iPad): tap to open, tap again to go. */
-function isTouchRow() {
-  return !window.matchMedia('(hover: hover) and (pointer: fine)').matches && window.matchMedia('(min-width: 640px)').matches
+/** Any device without a real hover pointer (phones, iPad): first tap previews, second tap goes. */
+function isTouch() {
+  return !window.matchMedia('(hover: hover) and (pointer: fine)').matches
 }
 
 /**
  * The four-image gallery; vertical spacing comes from the parent ServicesShowcase.
  * Mobile: 2×2 squares. From 640px: one flex row whose height is fixed from the
- * container width (container query units), so a card can grow wider (accordion)
- * without changing the row height. Mouse: the accordion follows :hover. Touch
- * (iPad): the first tap opens a card (.is-active), a second tap on it follows the
- * link, a tap elsewhere closes it. Motion lives in globals.css under .svc-gallery.
+ * container width (container query units), so a hovered card can grow wider
+ * (accordion) without changing the row height. Photos rest dimmed; the active one
+ * returns to full colour, zooms in and shows its caption.
+ * Mouse: :hover (and :focus-visible) drive it and a click follows the link.
+ * Touch: the first tap marks the card .is-active (colour, zoom, caption — no width
+ * change), a second tap on it follows the link, a tap elsewhere closes it.
+ * Motion lives in globals.css under .svc-gallery.
  */
 export function ServicesPreview() {
   const [active, setActive] = useState<number | null>(null)
@@ -59,7 +64,7 @@ export function ServicesPreview() {
   }, [active])
 
   const onCardClick = (e: MouseEvent<HTMLAnchorElement>, i: number) => {
-    if (active === i || !isTouchRow()) return
+    if (active === i || !isTouch()) return
     e.preventDefault()
     setActive(i)
   }
@@ -73,8 +78,7 @@ export function ServicesPreview() {
         {images.map((img, i) => (
           <Link
             key={img.src}
-            href={SERVICES_HREF}
-            aria-label={img.alt}
+            href={img.href}
             onClick={(e) => onCardClick(e, i)}
             style={{ '--i': i } as React.CSSProperties}
             className={`svc-item relative aspect-square overflow-hidden sm:aspect-auto sm:min-w-0 sm:flex-1 ${active === i ? 'is-active' : ''}`}
@@ -86,6 +90,10 @@ export function ServicesPreview() {
               sizes="(min-width: 1024px) 300px, (min-width: 640px) 33vw, 50vw"
               className={`svc-img block object-cover ${img.className}`}
             />
+            <span aria-hidden="true" className="svc-shade pointer-events-none absolute inset-0" />
+            <span className="svc-caption pointer-events-none absolute inset-0 flex items-center justify-center px-4 text-center font-primary text-[15px] font-normal leading-[1.2] tracking-[0.01em] text-white md:text-[16px]">
+              {img.caption}
+            </span>
           </Link>
         ))}
       </InView>

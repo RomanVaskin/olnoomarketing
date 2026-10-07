@@ -334,16 +334,17 @@
   }
 
   /* Home services gallery (components/services-preview.tsx).
-     Reveal: cards rise 12px into place one by one (110ms apart, 700ms) the first
-     time the row is on screen. Hover devices from 640px: the hovered card widens
-     (flex-grow 1 → 1.45, ≈ 32.6% of the row), lifts 4px and comes back to full
-     colour while its photo zooms 1.04 a little slower than the card widens. */
+     Photos rest dimmed and quiet; the active one (mouse :hover, keyboard
+     :focus-visible, touch .is-active) returns to its own colour, zooms 1.04 and
+     shows its centred caption ~150ms later. Mouse devices from 640px also get the
+     accordion: the active card widens (flex-grow 1 → 1.45) and lifts 4px.
+     Touch never changes widths. Reveal: cards rise 12px one by one, 120ms apart. */
   .svc-gallery .svc-item {
     opacity: 0;
     transform: translateY(12px);
     transition:
-      opacity 700ms cubic-bezier(0.22, 1, 0.36, 1) calc(var(--i) * 110ms),
-      transform 700ms cubic-bezier(0.22, 1, 0.36, 1) calc(var(--i) * 110ms),
+      opacity 700ms cubic-bezier(0.22, 1, 0.36, 1) calc(var(--i) * 120ms),
+      transform 700ms cubic-bezier(0.22, 1, 0.36, 1) calc(var(--i) * 120ms),
       flex-grow 550ms cubic-bezier(0.22, 1, 0.36, 1),
       translate 550ms cubic-bezier(0.22, 1, 0.36, 1),
       box-shadow 550ms cubic-bezier(0.22, 1, 0.36, 1);
@@ -353,40 +354,66 @@
     transform: none;
   }
   .svc-gallery .svc-img {
+    filter: grayscale(25%) saturate(55%) brightness(0.68) contrast(0.95);
     transition:
+      filter 600ms ease,
       transform 750ms cubic-bezier(0.22, 1, 0.36, 1),
-      filter 500ms cubic-bezier(0.22, 1, 0.36, 1),
-      opacity 500ms cubic-bezier(0.22, 1, 0.36, 1);
+      opacity 500ms ease;
+  }
+  /* faint centre shade, only behind an active caption, for legibility */
+  .svc-gallery .svc-shade {
+    background: radial-gradient(ellipse at center, rgba(0, 0, 0, 0.22), rgba(0, 0, 0, 0) 60%);
+    opacity: 0;
+    transition: opacity 500ms ease;
+  }
+  .svc-gallery .svc-caption {
+    opacity: 0;
+    transform: translateY(8px);
+    /* soft halo under the letters only — keeps white text legible on light frames */
+    text-shadow: 0 1px 14px rgba(0, 0, 0, 0.45), 0 0 2px rgba(0, 0, 0, 0.25);
+    transition:
+      opacity 500ms cubic-bezier(0.22, 1, 0.36, 1),
+      transform 500ms cubic-bezier(0.22, 1, 0.36, 1);
+  }
+  .svc-gallery .svc-item.is-active .svc-img,
+  .svc-gallery .svc-item:focus-visible .svc-img {
+    filter: grayscale(0%) saturate(100%) brightness(1) contrast(1);
+    transform: scale(1.04);
+  }
+  .svc-gallery .svc-item.is-active .svc-shade,
+  .svc-gallery .svc-item:focus-visible .svc-shade {
+    opacity: 1;
+  }
+  .svc-gallery .svc-item.is-active .svc-caption,
+  .svc-gallery .svc-item:focus-visible .svc-caption {
+    opacity: 1;
+    transform: none;
+    transition-delay: 150ms;
+  }
+  .svc-gallery .svc-item:focus-visible {
+    outline: 1px solid #111;
+    outline-offset: 3px;
   }
   @media (hover: hover) and (pointer: fine) {
-    .svc-gallery .svc-img {
-      filter: saturate(70%) brightness(0.9) contrast(0.96);
-      opacity: 0.94;
-    }
     .svc-gallery .svc-item:hover .svc-img {
-      filter: saturate(100%) brightness(1) contrast(1);
+      filter: grayscale(0%) saturate(100%) brightness(1) contrast(1);
+      transform: scale(1.04);
+    }
+    .svc-gallery .svc-item:hover .svc-shade {
       opacity: 1;
+    }
+    .svc-gallery .svc-item:hover .svc-caption {
+      opacity: 1;
+      transform: none;
+      transition-delay: 150ms;
     }
   }
   @media (hover: hover) and (pointer: fine) and (min-width: 640px) {
-    .svc-gallery .svc-item:hover {
+    .svc-gallery .svc-item:hover,
+    .svc-gallery .svc-item:focus-visible {
       flex-grow: 1.45;
       translate: 0 -4px;
       box-shadow: 0 16px 35px rgba(0, 0, 0, 0.045);
-    }
-    .svc-gallery .svc-item:hover .svc-img {
-      transform: scale(1.04);
-    }
-  }
-  /* Touch, from 640px (iPad): the same open state, set by the first tap. */
-  @media (min-width: 640px) {
-    .svc-gallery .svc-item.is-active {
-      flex-grow: 1.45;
-      translate: 0 -4px;
-      box-shadow: 0 16px 35px rgba(0, 0, 0, 0.045);
-    }
-    .svc-gallery .svc-item.is-active .svc-img {
-      transform: scale(1.04);
     }
   }
 
@@ -423,15 +450,26 @@
     }
     .svc-gallery .svc-item,
     .svc-gallery .svc-item:hover,
-    .svc-gallery .svc-item.is-active,
-    .svc-gallery .svc-img,
-    .svc-gallery .svc-item:hover .svc-img,
-    .svc-gallery .svc-item.is-active .svc-img {
+    .svc-gallery .svc-item:focus-visible,
+    .svc-gallery .svc-item.is-active {
       opacity: 1;
       transform: none;
       translate: none;
       flex-grow: 1;
-      transition: filter 500ms ease;
+      transition: none;
+    }
+    .svc-gallery .svc-img,
+    .svc-gallery .svc-item:hover .svc-img,
+    .svc-gallery .svc-item:focus-visible .svc-img,
+    .svc-gallery .svc-item.is-active .svc-img {
+      transform: none;
+      transition: filter 600ms ease;
+    }
+    .svc-gallery .svc-caption,
+    .svc-gallery .svc-item:hover .svc-caption,
+    .svc-gallery .svc-item:focus-visible .svc-caption,
+    .svc-gallery .svc-item.is-active .svc-caption {
+      transform: none;
     }
     .subheading-draw::before,
     .subheading-draw > span,
