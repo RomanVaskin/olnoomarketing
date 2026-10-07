@@ -333,6 +333,52 @@
     transform: none;
   }
 
+  /* Home services gallery (components/services-preview.tsx).
+     Reveal: cards rise 12px into place one by one (110ms apart, 700ms) the first
+     time the row is on screen. Hover devices from 640px: the hovered card widens
+     (flex-grow 1 → 1.45, ≈ 32.6% of the row), lifts 4px and comes back to full
+     colour while its photo zooms 1.04 a little slower than the card widens. */
+  .svc-gallery .svc-item {
+    opacity: 0;
+    transform: translateY(12px);
+    transition:
+      opacity 700ms cubic-bezier(0.22, 1, 0.36, 1) calc(var(--i) * 110ms),
+      transform 700ms cubic-bezier(0.22, 1, 0.36, 1) calc(var(--i) * 110ms),
+      flex-grow 550ms cubic-bezier(0.22, 1, 0.36, 1),
+      translate 550ms cubic-bezier(0.22, 1, 0.36, 1),
+      box-shadow 550ms cubic-bezier(0.22, 1, 0.36, 1);
+  }
+  .svc-gallery.is-inview .svc-item {
+    opacity: 1;
+    transform: none;
+  }
+  .svc-gallery .svc-img {
+    transition:
+      transform 750ms cubic-bezier(0.22, 1, 0.36, 1),
+      filter 500ms cubic-bezier(0.22, 1, 0.36, 1),
+      opacity 500ms cubic-bezier(0.22, 1, 0.36, 1);
+  }
+  @media (hover: hover) and (pointer: fine) {
+    .svc-gallery .svc-img {
+      filter: saturate(70%) brightness(0.9) contrast(0.96);
+      opacity: 0.94;
+    }
+    .svc-gallery .svc-item:hover .svc-img {
+      filter: saturate(100%) brightness(1) contrast(1);
+      opacity: 1;
+    }
+  }
+  @media (hover: hover) and (pointer: fine) and (min-width: 640px) {
+    .svc-gallery .svc-item:hover {
+      flex-grow: 1.45;
+      translate: 0 -4px;
+      box-shadow: 0 16px 35px rgba(0, 0, 0, 0.045);
+    }
+    .svc-gallery .svc-item:hover .svc-img {
+      transform: scale(1.04);
+    }
+  }
+
   /* Scroll-triggered reveal, used by components/reveal.tsx */
   .reveal {
     opacity: 0;
@@ -363,6 +409,16 @@
     .package-card:hover,
     .package-card.is-active {
       transform: none;
+    }
+    .svc-gallery .svc-item,
+    .svc-gallery .svc-item:hover,
+    .svc-gallery .svc-img,
+    .svc-gallery .svc-item:hover .svc-img {
+      opacity: 1;
+      transform: none;
+      translate: none;
+      flex-grow: 1;
+      transition: filter 500ms ease;
     }
     .subheading-draw::before,
     .subheading-draw > span,
