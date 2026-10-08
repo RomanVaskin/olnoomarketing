@@ -35,9 +35,11 @@ const infographics: { id: string; src: string | null; alt: string }[] = [
  */
 const SLOT_ASPECT = 'aspect-square'
 
+// From md the whole gallery is scaled to 81% of the column and centred; phones keep full width.
+
 export function BrokerageInfographics() {
   return (
-    <div className="mt-14 grid grid-cols-1 gap-5 md:mt-16 md:grid-cols-2 md:gap-6 lg:grid-cols-4">
+    <div className="mt-14 grid grid-cols-1 gap-5 md:mx-auto md:mt-16 md:max-w-[81%] md:grid-cols-2 md:gap-5 lg:grid-cols-4">
       {infographics.map((item, i) => (
         <Reveal key={item.id} index={i}>
           <div
