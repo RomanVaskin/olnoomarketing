@@ -5,17 +5,21 @@ import Image from 'next/image'
 import Link from 'next/link'
 import { InView } from './in-view'
 
-/** Order matches the photos; each opens its section on /services. */
+/**
+ * Order matches the photos; each opens its section on /services. Captions may wrap
+ * to two lines; the non-breaking hyphen and word joiner keep "Estate-CRM" and
+ * "2–7%" whole.
+ */
 const images = [
   {
     src: '/aure-agency-who-we-are-marketing.webp',
-    caption: 'Уникальный Estate-CRM',
+    caption: 'Уникальный Estate\u2011CRM',
     href: '/services#digital-infrastructure',
     className: 'object-[70%_50%]',
   },
   {
     src: '/aure-services-02-branding.webp',
-    caption: 'Брокеридж 2–7%',
+    caption: 'Брокеридж 2–\u20607%',
     href: '/services#brokerage',
     className: 'object-center',
   },
@@ -42,8 +46,8 @@ function isTouch() {
  * The four-image gallery; vertical spacing comes from the parent ServicesShowcase.
  * Mobile: 2×2 squares. From 640px: one flex row whose height is fixed from the
  * container width (container query units), so a hovered card can grow wider
- * (accordion) without changing the row height. Photos rest dimmed; the active one
- * returns to full colour, zooms in and shows its caption.
+ * (accordion) without changing the row height. Photos rest lightly dimmed; the
+ * active one returns to full colour, zooms in and shows its centred white caption.
  * Mouse: :hover (and :focus-visible) drive it and a click follows the link.
  * Touch: the first tap marks the card .is-active (colour, zoom, caption — no width
  * change), a second tap on it follows the link, a tap elsewhere closes it.
@@ -90,8 +94,7 @@ export function ServicesPreview() {
               sizes="(min-width: 1024px) 300px, (min-width: 640px) 33vw, 50vw"
               className={`svc-img block object-cover ${img.className}`}
             />
-            <span aria-hidden="true" className="svc-shade pointer-events-none absolute inset-0" />
-            <span className="svc-caption pointer-events-none absolute inset-0 flex items-center justify-center px-4 text-center font-primary text-[15px] font-normal leading-[1.2] tracking-[0.01em] text-white md:text-[16px]">
+            <span className="svc-caption pointer-events-none absolute inset-0 z-[2] flex items-center justify-center px-4 text-center font-primary">
               {img.caption}
             </span>
           </Link>
