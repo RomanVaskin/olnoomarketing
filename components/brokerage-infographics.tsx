@@ -18,9 +18,9 @@ const infographics: { id: string; src: string | null; alt: string }[] = [
     alt: '2–7% от сделки',
   },
   {
-    id: 'reserved',
-    src: null, // reserved for the fourth layout
-    alt: '',
+    id: 'broker-base',
+    src: '/3%20(1).png', // file: public/3 (1).png
+    alt: 'Собственная база брокеров',
   },
   {
     id: 'investment',

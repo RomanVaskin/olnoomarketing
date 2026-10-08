@@ -1,7 +1,6 @@
 import { Reveal } from './reveal'
 import { BrokerageInfographics } from './brokerage-infographics'
 import { FocusCard } from './focus-card'
-import { InView } from './in-view'
 
 const packages = [
   {
@@ -35,39 +34,31 @@ const packages = [
   },
 ]
 
-const notes: { id: string; label: string; text: string; extra?: string; fee?: string }[] = [
+const notes: { id: string; label: string; text: string; extra?: string; dash?: boolean }[] = [
   {
     id: 'additional-services',
     label: 'Дополнительные услуги',
+    dash: false,
     text: 'Публикации и работа со СМИ, организация закрытых продаж и мероприятий, разработка и производство комплиментарных сетов, подготовка и запуск видеопродакшна, дизайн и размещение наружной рекламы, участие в отраслевых выставках.',
   },
   {
     id: 'brokerage',
     label: 'Брокеридж',
-    text: 'Продажа загородной недвижимости с полным сопровождением — от стратегии выхода на рынок и поиска покупателя до переговоров и закрытия сделки.',
+    text: 'Продажа загородной недвижимости с полным сопровождением 2–7%\u00a0от сделки — от стратегии выхода на рынок и поиска покупателя до переговоров и закрытия сделки.',
     extra: 'Подключаем наш внешний отдел продаж',
-    fee: '2–7% от сделки',
   },
 ]
 
-const subheadingBase =
-  "flex items-center font-primary text-[#161616] before:shrink-0 before:bg-foreground before:content-['']"
+const subheadingText =
+  'font-primary text-[20px] font-light leading-[1.15] tracking-[-0.015em] text-[#161616] md:text-[24px] lg:text-[length:clamp(24px,2.2vw,36px)]'
 
-/** Regular subheading: light, led by a thin 1px rule. */
-const subheadingRegular =
-  'gap-3 text-[20px] font-light leading-[1.15] tracking-[-0.015em] before:h-px before:w-6 md:gap-4 md:text-[24px] md:before:w-[30px] lg:text-[length:clamp(24px,2.2vw,36px)]'
+/** The thin 1px black rule that leads a subheading. */
+const subheadingDash =
+  "flex items-center gap-3 before:h-px before:w-6 before:shrink-0 before:bg-foreground before:content-[''] md:gap-4 md:before:w-[30px]"
 
-/** Lead subheading (Комплексный маркетинг): medium, ~12% larger, thick rounded 3px rule. */
-const subheadingStrong =
-  'gap-4 text-[21px] font-medium leading-[1.1] tracking-[-0.02em] before:h-[3px] before:w-7 before:rounded-full md:gap-[18px] md:text-[27px] md:before:w-9 lg:text-[length:clamp(27px,2.45vw,40px)]'
-
-/** Section subheading one level below the page H1, led by a short black rule. */
-function SectionSubheading({ children, strong = false }: { children: string; strong?: boolean }) {
-  return (
-    <h2 className={`${subheadingBase} ${strong ? `${subheadingStrong} subheading-draw` : subheadingRegular}`}>
-      <span>{children}</span>
-    </h2>
-  )
+/** Section subheading one level below the page H1: light, optionally led by a short rule. */
+function SectionSubheading({ children, dash = true }: { children: string; dash?: boolean }) {
+  return <h2 className={`${subheadingText} ${dash ? subheadingDash : ''}`}>{children}</h2>
 }
 
 /** Figure style for package prices. */
@@ -77,10 +68,9 @@ const figureClass =
 export function ServicesPackages() {
   return (
     <section id="complex-marketing" className="scroll-mt-16 mx-auto max-w-[1400px] px-5 pb-20 md:px-10 md:pb-24">
-      {/* the rule draws in, then the title fades up — once, see .subheading-draw */}
-      <InView className="border-t border-foreground pt-12 md:pt-14">
-        <SectionSubheading strong>Комплексный маркетинг</SectionSubheading>
-      </InView>
+      <Reveal className="border-t border-foreground pt-12 md:pt-14">
+        <SectionSubheading>Комплексный маркетинг</SectionSubheading>
+      </Reveal>
 
       <div className="mx-auto mt-9 grid max-w-[1080px] grid-cols-1 gap-4 md:mt-10 md:grid-cols-2 md:gap-8 lg:gap-11">
         {packages.map((p, i) => (
@@ -118,7 +108,7 @@ export function ServicesPackages() {
           // Дополнительные услуги follow the cards directly; Брокеридж opens with the black rule.
           className={`scroll-mt-24 ${i === 0 ? 'mt-[72px] md:mt-20' : 'mt-20 border-t border-foreground pt-12 md:mt-24 md:pt-14'}`}
         >
-          <SectionSubheading>{n.label}</SectionSubheading>
+          <SectionSubheading dash={n.dash}>{n.label}</SectionSubheading>
           <div className="mt-7 max-w-[860px]">
             <p className="text-pretty text-base leading-[1.6] text-muted-foreground md:text-lg">
               {n.text}
@@ -129,11 +119,6 @@ export function ServicesPackages() {
                 </>
               )}
             </p>
-            {n.fee && (
-              <p className="mt-7 font-primary text-[22px] font-normal leading-[1.2] tracking-[-0.01em] text-[#161616] md:text-[24px]">
-                {n.fee}
-              </p>
-            )}
           </div>
         </Reveal>
       ))}
