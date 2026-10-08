@@ -12,28 +12,30 @@ import { InView } from './in-view'
  */
 const images = [
   {
-    src: '/aure-agency-who-we-are-marketing.webp',
+    src: '/-11.png',
     caption: 'Уникальный Estate\u2011CRM',
     href: '/services#digital-infrastructure',
-    className: 'object-[70%_50%]',
+    // onyx: keep the crossing veins on the left in frame
+    className: 'object-[25%_50%]',
   },
   {
-    src: '/aure-services-02-branding.webp',
+    src: '/-22.png',
     caption: 'Брокеридж 2–\u20607%',
     href: '/services#brokerage',
     className: 'object-center',
   },
   {
-    src: '/aure-services-03-strategy.webp',
+    src: '/-33.jpg',
     caption: 'SEO / SMM / Digital',
     href: '/services#promotion',
     className: 'object-center',
   },
   {
-    src: '/aure-services-04-sales.webp',
+    src: '/-44.png',
     caption: 'Комплексный маркетинг',
     href: '/services#complex-marketing',
-    className: 'object-center',
+    // leather: keep the light falling across the right side in frame
+    className: 'object-[78%_50%]',
   },
 ]
 
