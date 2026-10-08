@@ -46,10 +46,10 @@ function isTouch() {
  * The four-image gallery; vertical spacing comes from the parent ServicesShowcase.
  * Mobile: 2×2 squares. From 640px: one flex row whose height is fixed from the
  * container width (container query units), so a hovered card can grow wider
- * (accordion) without changing the row height. Photos rest lightly dimmed; the
- * active one returns to full colour, zooms in and shows its centred white caption.
+ * (accordion) without changing the row height. Photos rest in natural colour; the
+ * active one darkens evenly, zooms in and shows its centred white caption.
  * Mouse: :hover (and :focus-visible) drive it and a click follows the link.
- * Touch: the first tap marks the card .is-active (colour, zoom, caption — no width
+ * Touch: the first tap marks the card .is-active (darken, zoom, caption — no width
  * change), a second tap on it follows the link, a tap elsewhere closes it.
  * Motion lives in globals.css under .svc-gallery.
  */
