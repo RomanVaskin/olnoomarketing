@@ -334,12 +334,16 @@
   }
 
   /* Home services gallery (components/services-preview.tsx).
-     Photos rest dimmed and quiet; the active one (mouse :hover, keyboard
-     :focus-visible, touch .is-active) returns to its own colour, zooms 1.04 and
-     shows its centred caption ~150ms later. Mouse devices from 640px also get the
+     Photos rest evenly and lightly dimmed (filter on the <img> only, so the white
+     caption is never dimmed). The active one (mouse :hover, keyboard
+     :focus-visible, touch .is-active) brightens to its own colour, zooms 1.04 and
+     shows its centred white caption ~150ms later — no text shadow, no shade.
+     Each card is a size container, so the caption scales with the card's real
+     width, including mid-accordion. Mouse devices from 640px also get the
      accordion: the active card widens (flex-grow 1 → 1.45) and lifts 4px.
      Touch never changes widths. Reveal: cards rise 12px one by one, 120ms apart. */
   .svc-gallery .svc-item {
+    container-type: inline-size;
     opacity: 0;
     transform: translateY(12px);
     transition:
@@ -354,35 +358,33 @@
     transform: none;
   }
   .svc-gallery .svc-img {
-    filter: grayscale(25%) saturate(55%) brightness(0.68) contrast(0.95);
+    filter: brightness(0.78) saturate(0.75);
     transition:
-      filter 600ms ease,
-      transform 750ms cubic-bezier(0.22, 1, 0.36, 1),
+      filter 600ms cubic-bezier(0.22, 1, 0.36, 1),
+      transform 650ms cubic-bezier(0.22, 1, 0.36, 1),
       opacity 500ms ease;
   }
-  /* faint centre shade, only behind an active caption, for legibility */
-  .svc-gallery .svc-shade {
-    background: radial-gradient(ellipse at center, rgba(0, 0, 0, 0.22), rgba(0, 0, 0, 0) 60%);
-    opacity: 0;
-    transition: opacity 500ms ease;
-  }
+  /* layout centring comes from the flex box (inset 0), so the motion transform
+     below never fights it */
   .svc-gallery .svc-caption {
+    color: #fff;
+    font-size: clamp(15px, 12cqw, 26px);
+    font-weight: 400;
+    line-height: 1.18;
+    letter-spacing: -0.01em;
+    text-wrap: balance;
+    text-shadow: none;
+    filter: none;
     opacity: 0;
-    transform: translateY(8px);
-    /* soft halo under the letters only — keeps white text legible on light frames */
-    text-shadow: 0 1px 14px rgba(0, 0, 0, 0.45), 0 0 2px rgba(0, 0, 0, 0.25);
+    transform: translateY(6px);
     transition:
       opacity 500ms cubic-bezier(0.22, 1, 0.36, 1),
       transform 500ms cubic-bezier(0.22, 1, 0.36, 1);
   }
   .svc-gallery .svc-item.is-active .svc-img,
   .svc-gallery .svc-item:focus-visible .svc-img {
-    filter: grayscale(0%) saturate(100%) brightness(1) contrast(1);
+    filter: brightness(1) saturate(1);
     transform: scale(1.04);
-  }
-  .svc-gallery .svc-item.is-active .svc-shade,
-  .svc-gallery .svc-item:focus-visible .svc-shade {
-    opacity: 1;
   }
   .svc-gallery .svc-item.is-active .svc-caption,
   .svc-gallery .svc-item:focus-visible .svc-caption {
@@ -396,11 +398,8 @@
   }
   @media (hover: hover) and (pointer: fine) {
     .svc-gallery .svc-item:hover .svc-img {
-      filter: grayscale(0%) saturate(100%) brightness(1) contrast(1);
+      filter: brightness(1) saturate(1);
       transform: scale(1.04);
-    }
-    .svc-gallery .svc-item:hover .svc-shade {
-      opacity: 1;
     }
     .svc-gallery .svc-item:hover .svc-caption {
       opacity: 1;
