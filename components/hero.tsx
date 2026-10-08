@@ -29,10 +29,14 @@ export function Hero() {
         </div>
 
         <div className="fade-up absolute inset-x-0 bottom-5 z-[3] mx-auto max-w-[1400px] px-5 md:bottom-[clamp(32px,5vh,64px)] md:px-10 lg:bottom-[clamp(45px,7vh,90px)]">
-          <h1 className="font-mono text-[length:min(calc((100vw_-_2.5rem)/15.5),24px)] font-light leading-[1.25] tracking-[0.04em] text-[#161616] min-[360px]:whitespace-nowrap md:text-[length:min(calc((100vw_-_5rem)/16.5),34px)] md:tracking-[0.08em] lg:text-[length:clamp(34px,3.2vw,52px)] lg:tracking-[0.1em]">
-            Маркетинг и продажи
+          {/* Tracking stays per breakpoint in --hero-ls; the gaps between words are
+              tightened by --hero-ws and each line gets back exactly that width as
+              letter-spacing (2 spaces over 19 glyphs, 1 over 23), so both lines keep
+              their original length. See .hero-line-1/2 in globals.css. */}
+          <h1 className="font-mono text-[length:min(calc((100vw_-_2.5rem)/15.5),24px)] font-light leading-[1.25] text-[#161616] [--hero-ls:0.04em] [--hero-ws:-0.25em] [word-spacing:var(--hero-ws)] min-[360px]:whitespace-nowrap md:text-[length:min(calc((100vw_-_5rem)/16.5),34px)] md:[--hero-ls:0.08em] lg:text-[length:clamp(34px,3.2vw,52px)] lg:[--hero-ls:0.1em]">
+            <span className="hero-line-1">Маркетинг и продажи</span>
             <br />
-            загородной недвижимости
+            <span className="hero-line-2">загородной недвижимости</span>
           </h1>
         </div>
       </div>

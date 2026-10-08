@@ -333,6 +333,16 @@
     transform: none;
   }
 
+  /* Home hero heading (components/hero.tsx), Geist Mono: every glyph is 0.6em,
+     so a space is as wide as a letter. --hero-ws trims the word gaps and each
+     line spreads that width back over its own glyphs. */
+  .hero-line-1 {
+    letter-spacing: calc(var(--hero-ls) - var(--hero-ws) * 2 / 19);
+  }
+  .hero-line-2 {
+    letter-spacing: calc(var(--hero-ls) - var(--hero-ws) / 23);
+  }
+
   /* Home services gallery (components/services-preview.tsx).
      Photos rest in their natural colour. The active one (mouse :hover, keyboard
      :focus-visible, touch .is-active) darkens evenly (filter on the <img> only, so
