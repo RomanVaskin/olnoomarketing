@@ -76,7 +76,7 @@ export function ServicesPreview() {
   }
 
   return (
-    <div ref={rootRef} className="mx-auto w-full max-w-[900px] [container-type:inline-size]">
+    <div ref={rootRef} className="mx-auto w-full max-w-[1020px] [container-type:inline-size]">
       <InView
         threshold={0.2}
         className="svc-gallery grid grid-cols-2 gap-2 sm:flex sm:h-[calc((100cqw_-_3*var(--g))/4)] sm:gap-[var(--g)] [--g:10px] lg:[--g:14px]"
