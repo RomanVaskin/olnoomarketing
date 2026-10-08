@@ -25,7 +25,7 @@ const images = [
     className: 'object-center',
   },
   {
-    src: '/-33.jpg',
+    src: '/IMG_6154.JPG',
     caption: 'SEO / SMM / Digital',
     href: '/services#promotion',
     className: 'object-center',
