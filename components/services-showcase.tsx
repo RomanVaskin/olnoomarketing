@@ -1,6 +1,7 @@
 import Link from 'next/link'
 import { ctaButtonClass } from './services-cta'
 import { ServicesPreview } from './services-preview'
+import { PROJECTS_ENABLED } from '@/lib/sections'
 
 /**
  * Услуги → four images → Кейсы, between the 'Кто мы' rule above and this block's
@@ -15,9 +16,16 @@ export function ServicesShowcase() {
           Услуги
         </Link>
         <ServicesPreview />
-        <Link href="/projects" className={ctaButtonClass}>
-          Кейсы
-        </Link>
+        {PROJECTS_ENABLED ? (
+          <Link href="/projects" className={ctaButtonClass}>
+            Кейсы
+          </Link>
+        ) : (
+          // same pill, but inert while the Проекты page is closed (lib/sections.ts)
+          <span aria-disabled="true" className={`${ctaButtonClass} cursor-default select-none hover:opacity-100`}>
+            Кейсы
+          </span>
+        )}
       </div>
     </div>
   )
