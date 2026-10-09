@@ -8,10 +8,12 @@ import { Results } from '@/components/results'
 import { SiteFooter } from '@/components/site-footer'
 import { ctaButtonClass } from '@/components/services-cta'
 
-const PROCESS_IMAGE_SRC = '/IMG_0829.webp'
-const PROCESS_IMAGE_ALT = 'Архитектурная визуализация загородного дома у воды с линиями чертежа'
-const PROCESS_CTA_IMAGE_SRC = '/process-cta.webp'
-const PROCESS_CTA_IMAGE_ALT = 'Загородный дом с бассейном у озера в вечернем освещении'
+// WebP copies of public/images/ChatGPT Image 25 сент. 2026 г., 14_25_19.png
+// and public/images/Копия process-hero.png
+const PROCESS_IMAGE_SRC = '/process-hero-2.webp'
+const PROCESS_IMAGE_ALT = 'Загородный дом у воды на закате с линиями архитектурного чертежа'
+const PROCESS_CTA_IMAGE_SRC = '/process-cta-2.webp'
+const PROCESS_CTA_IMAGE_ALT = 'Терраса загородного дома среди сосен с видом на озеро на закате'
 
 export const metadata: Metadata = {
   alternates: { canonical: '/process' },
@@ -57,17 +59,13 @@ export default function ProcessPage() {
 
         <section className="mx-auto max-w-[1400px] px-5 md:px-10">
           <div className="relative aspect-[3/2] w-full overflow-hidden md:aspect-[17/4]">
-            {/* The file's top ~14% holds a stray strip of another frame; the taller,
-                bottom-anchored box keeps that strip outside the visible area. */}
-            <div className="absolute inset-x-0 -top-[17%] bottom-0">
-              <Image
-                src={PROCESS_CTA_IMAGE_SRC}
-                alt={PROCESS_CTA_IMAGE_ALT}
-                fill
-                sizes="(min-width: 1400px) 1320px, 100vw"
-                className="object-cover object-bottom"
-              />
-            </div>
+            <Image
+              src={PROCESS_CTA_IMAGE_SRC}
+              alt={PROCESS_CTA_IMAGE_ALT}
+              fill
+              sizes="(min-width: 1400px) 1320px, 100vw"
+              className="object-cover"
+            />
           </div>
         </section>
 
