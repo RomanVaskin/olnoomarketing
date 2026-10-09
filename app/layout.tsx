@@ -11,12 +11,31 @@ const inter = Inter({
   variable: '--font-inter',
 })
 
+const SITE_TITLE = 'AURE AGENCY — Маркетинг загородной недвижимости'
+const SITE_DESCRIPTION =
+  'AURE AGENCY — маркетинг и digital-рост для коттеджных посёлков, девелоперов и строительных компаний. Превращаем маркетинг в продажи.'
+
 export const metadata: Metadata = {
   metadataBase: new URL('https://aureagency.ru'),
-  title: 'AURE AGENCY — Маркетинг загородной недвижимости',
-  description:
-    'AURE AGENCY — маркетинг и digital-рост для коттеджных посёлков, девелоперов и строительных компаний. Превращаем маркетинг в продажи.',
+  title: SITE_TITLE,
+  description: SITE_DESCRIPTION,
   generator: 'v0.app',
+  // Explicit link-preview tags (Telegram, WhatsApp, VK, social networks); pages that set
+  // their own title/description still share this brand image and site name.
+  openGraph: {
+    type: 'website',
+    siteName: 'AURE AGENCY',
+    locale: 'ru_RU',
+    title: SITE_TITLE,
+    description: SITE_DESCRIPTION,
+    images: [{ url: '/og-image.jpg', width: 1200, height: 630, alt: 'AURE AGENCY — логотип на каменной стене' }],
+  },
+  twitter: {
+    card: 'summary_large_image',
+    title: SITE_TITLE,
+    description: SITE_DESCRIPTION,
+    images: ['/og-image.jpg'],
+  },
 }
 
 export const viewport: Viewport = {
