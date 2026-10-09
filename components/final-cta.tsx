@@ -5,12 +5,10 @@ import { PageEyebrow } from './page-eyebrow'
 import { TELEGRAM_URL, WHATSAPP_URL } from '@/lib/contacts'
 
 /**
- * Architectural background (travertine wall, light on the left for the text, stone
- * console on the right): a WebP copy of the uploaded
- * public/images/services/Солнечный интерьер с травертином и оливой.png.
- * Set to null for a plain white section.
+ * Optional background photo for the section (path under public/). While null the
+ * section is plain white and the form sits without its frosted-glass panel.
  */
-const CONTACT_BACKGROUND: string | null = '/images/contact-travertine.webp'
+const CONTACT_BACKGROUND: string | null = null
 
 function WhatsAppIcon() {
   return (
