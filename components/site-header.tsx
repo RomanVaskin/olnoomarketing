@@ -3,11 +3,12 @@
 import { useState } from 'react'
 import Link from 'next/link'
 import { Logo } from './logo'
+import { PROJECTS_ENABLED, disabledNavClass } from '@/lib/sections'
 
-const nav = [
+const nav: { label: string; href: string; disabled?: boolean }[] = [
   { label: 'Услуги', href: '/services' },
   { label: 'Процесс', href: '/process' },
-  { label: 'Проекты', href: '/projects' },
+  { label: 'Проекты', href: '/projects', disabled: !PROJECTS_ENABLED },
   { label: 'Система', href: '/system' },
   { label: 'Контакты', href: '/contact' },
 ]
@@ -23,15 +24,21 @@ export function SiteHeader() {
         </a>
 
         <nav className="hidden items-center gap-8 lg:flex">
-          {nav.map((item) => (
-            <Link
-              key={item.href}
-              href={item.href}
-              className="font-primary text-[13px] tracking-ui text-muted-foreground transition-colors hover:text-foreground"
-            >
-              {item.label}
-            </Link>
-          ))}
+          {nav.map((item) =>
+            item.disabled ? (
+              <span key={item.href} aria-disabled="true" className={`font-primary text-[13px] tracking-ui ${disabledNavClass}`}>
+                {item.label}
+              </span>
+            ) : (
+              <Link
+                key={item.href}
+                href={item.href}
+                className="font-primary text-[13px] tracking-ui text-muted-foreground transition-colors hover:text-foreground"
+              >
+                {item.label}
+              </Link>
+            ),
+          )}
         </nav>
 
         <div className="flex items-center gap-3">
@@ -61,16 +68,26 @@ export function SiteHeader() {
       {open && (
         <div className="border-t border-border/70 bg-background lg:hidden">
           <nav className="mx-auto flex max-w-[1400px] flex-col px-5 py-4 md:px-10">
-            {nav.map((item) => (
-              <Link
-                key={item.href}
-                href={item.href}
-                onClick={() => setOpen(false)}
-                className="border-b border-border/60 py-3 font-primary text-sm tracking-ui text-foreground/80 last:border-0"
-              >
-                {item.label}
-              </Link>
-            ))}
+            {nav.map((item) =>
+              item.disabled ? (
+                <span
+                  key={item.href}
+                  aria-disabled="true"
+                  className={`border-b border-border/60 py-3 font-primary text-sm tracking-ui last:border-0 ${disabledNavClass}`}
+                >
+                  {item.label}
+                </span>
+              ) : (
+                <Link
+                  key={item.href}
+                  href={item.href}
+                  onClick={() => setOpen(false)}
+                  className="border-b border-border/60 py-3 font-primary text-sm tracking-ui text-foreground/80 last:border-0"
+                >
+                  {item.label}
+                </Link>
+              ),
+            )}
             <a
               href="/contact"
               onClick={() => setOpen(false)}
