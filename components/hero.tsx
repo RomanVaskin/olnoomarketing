@@ -1,13 +1,22 @@
 'use client'
 
+import { useEffect, useState } from 'react'
 import { useParallax } from '@/lib/use-parallax'
+
+/** Phones get a 4:5 portrait cut of the hero film; md+ keeps the 16:9 original. */
+const MOBILE_QUERY = '(max-width: 767px)'
 
 export function Hero() {
   const parallaxRef = useParallax<HTMLDivElement>(0.08, 18)
+  // the <source media> list picks the film; the poster has no media query, so swap it here
+  const [poster, setPoster] = useState('/hero-video-poster.jpg')
+  useEffect(() => {
+    if (window.matchMedia(MOBILE_QUERY).matches) setPoster('/hero-video-vertical-poster.jpg')
+  }, [])
 
   return (
     <section id="top" className="pt-16">
-      <div className="relative aspect-video w-full overflow-hidden md:aspect-auto md:h-[min(56.25vw,70vh)] lg:h-[min(clamp(650px,75vh,900px),56vw)]">
+      <div className="relative aspect-[4/5] w-full overflow-hidden md:aspect-auto md:h-[min(56.25vw,70vh)] lg:h-[min(clamp(650px,75vh,900px),56vw)]">
         <div className="fade-up absolute inset-x-0 top-[clamp(20px,3.3vw,48px)] z-[2] mx-auto max-w-[1400px] px-5 md:px-10">
           <p className="font-primary min-[360px]:whitespace-nowrap text-[12px] font-normal uppercase leading-none tracking-[0.18em] text-[rgba(55,55,55,0.82)] md:text-[13px] md:tracking-label lg:text-[15px]">
             AURE AGENCY / Real Estate Marketing
@@ -15,9 +24,10 @@ export function Hero() {
         </div>
 
         <div ref={parallaxRef} className="h-full">
+          {/* hero-video-vertical.mp4 is the same film recomposed to 4:5: the full-width
+              logo stays whole and the stone wall is extended above and below it */}
           <video
-            src="/hero-video.mp4"
-            poster="/hero-video-poster.jpg"
+            poster={poster}
             autoPlay
             muted
             loop
@@ -25,7 +35,10 @@ export function Hero() {
             preload="auto"
             aria-label="AURE AGENCY — логотип на фактурной каменной стене"
             className="block h-full w-full max-w-none object-cover md:origin-[35%_50%] md:scale-[1.085] lg:scale-[1.065]"
-          />
+          >
+            <source src="/hero-video-vertical.mp4" type="video/mp4" media={MOBILE_QUERY} />
+            <source src="/hero-video.mp4" type="video/mp4" />
+          </video>
         </div>
 
         <div className="fade-up absolute inset-x-0 bottom-5 z-[3] mx-auto max-w-[1400px] px-5 md:bottom-[clamp(32px,5vh,64px)] md:px-10 lg:bottom-[clamp(45px,7vh,90px)]">
