@@ -82,11 +82,11 @@ export function FinalCta() {
             </div>
           </div>
 
-          {/* over the background the form is frosted glass: a 38% warm-white layer and a
+          {/* over the background the form is frosted glass: a 27% warm-white layer and a
               14px blur of only what lies behind it (backdrop-filter), so the stone and the
               light still show through while the fields stay sharp */}
           <form
-            className={`flex flex-col gap-6 ${CONTACT_BACKGROUND ? 'md:self-start md:rounded-[18px] md:border md:border-white/55 md:bg-[rgba(245,242,237,0.38)] md:p-9 md:backdrop-blur-[14px] lg:p-11' : ''}`}
+            className={`flex flex-col gap-6 ${CONTACT_BACKGROUND ? 'md:self-start md:rounded-[18px] md:border md:border-white/55 md:bg-[rgba(245,242,237,0.27)] md:p-9 md:backdrop-blur-[14px] lg:p-11' : ''}`}
             onSubmit={(e) => e.preventDefault()}
             aria-label="Форма заявки"
           >
