@@ -32,6 +32,12 @@ function TelegramIcon() {
 const messengerBase =
   'inline-flex h-[52px] items-center justify-center gap-2.5 rounded-full px-6 bg-[#E8E7E4] font-primary text-[15px] font-normal leading-none tracking-ui text-[#171717] transition-colors duration-300 hover:bg-[#DCDBD8] aria-disabled:cursor-default aria-disabled:hover:bg-[#E8E7E4] md:h-[54px] md:px-7 md:text-base'
 
+/** Form field styles, tuned to stay crisp on the frosted panel. */
+const fieldLabel =
+  'font-primary text-[11px] font-normal uppercase leading-none tracking-label text-[#4A4743]'
+const fieldInput =
+  'border-b border-[rgba(70,65,60,0.18)] bg-transparent py-3 text-base text-[#242321] outline-none transition-colors placeholder:text-[#77736E] focus:border-foreground'
+
 const messengers = [
   { label: 'WhatsApp', href: WHATSAPP_URL, Icon: WhatsAppIcon },
   { label: 'Telegram', href: TELEGRAM_URL, Icon: TelegramIcon },
@@ -76,43 +82,44 @@ export function FinalCta() {
             </div>
           </div>
 
-          {/* over the background the form sits on a light frosted panel so its labels stay
-              readable against the darker right half of the photo */}
+          {/* over the background the form is frosted glass: a 38% warm-white layer and a
+              14px blur of only what lies behind it (backdrop-filter), so the stone and the
+              light still show through while the fields stay sharp */}
           <form
-            className={`flex flex-col gap-6 ${CONTACT_BACKGROUND ? 'md:self-start md:rounded-[18px] md:bg-[#F7F5F1]/85 md:p-9 md:backdrop-blur-[6px] lg:p-11' : ''}`}
+            className={`flex flex-col gap-6 ${CONTACT_BACKGROUND ? 'md:self-start md:rounded-[18px] md:border md:border-white/55 md:bg-[rgba(245,242,237,0.38)] md:p-9 md:backdrop-blur-[14px] lg:p-11' : ''}`}
             onSubmit={(e) => e.preventDefault()}
             aria-label="Форма заявки"
           >
             <div className="flex flex-col gap-2">
-              <label htmlFor="name" className="font-primary text-[11px] font-normal uppercase leading-none tracking-label text-muted-foreground">
+              <label htmlFor="name" className={fieldLabel}>
                 Имя
               </label>
               <input
                 id="name"
                 type="text"
-                className="border-b border-border bg-transparent py-3 text-base outline-none transition-colors placeholder:text-muted-foreground/60 focus:border-foreground"
+                className={fieldInput}
                 placeholder="Как к вам обращаться"
               />
             </div>
             <div className="flex flex-col gap-2">
-              <label htmlFor="contact" className="font-primary text-[11px] font-normal uppercase leading-none tracking-label text-muted-foreground">
+              <label htmlFor="contact" className={fieldLabel}>
                 Телефон или Telegram
               </label>
               <input
                 id="contact"
                 type="text"
-                className="border-b border-border bg-transparent py-3 text-base outline-none transition-colors placeholder:text-muted-foreground/60 focus:border-foreground"
+                className={fieldInput}
                 placeholder="+7 или @username"
               />
             </div>
             <div className="flex flex-col gap-2">
-              <label htmlFor="project" className="font-primary text-[11px] font-normal uppercase leading-none tracking-label text-muted-foreground">
+              <label htmlFor="project" className={fieldLabel}>
                 Проект / комментарий
               </label>
               <textarea
                 id="project"
                 rows={3}
-                className="resize-none border-b border-border bg-transparent py-3 text-base outline-none transition-colors placeholder:text-muted-foreground/60 focus:border-foreground"
+                className={`resize-none ${fieldInput}`}
                 placeholder="Коротко о проекте и задаче"
               />
             </div>
