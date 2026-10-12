@@ -11,7 +11,40 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-      - name: Deploy to KZ server
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Setup pnpm
+        uses: pnpm/action-setup@v4
+        with:
+          version: 12.3.4
+          run_install: false
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: pnpm
+
+      - name: Install dependencies
+        run: pnpm install --frozen-lockfile
+
+      - name: Build on GitHub runner
+        run: |
+          rm -rf .next-new
+          NEXT_DIST_DIR=.next-new pnpm build
+          tar -czf olnoomarketing-build.tgz .next-new
+
+      - name: Upload build to production
+        uses: appleboy/scp-action@v1
+        with:
+          host: ${{ secrets.KZ_HOST }}
+          username: ${{ secrets.KZ_USER }}
+          key: ${{ secrets.KZ_SSH_KEY }}
+          source: olnoomarketing-build.tgz
+          target: /tmp
+
+      - name: Deploy to production
         uses: appleboy/ssh-action@v1.2.0
         with:
           host: ${{ secrets.KZ_HOST }}
@@ -26,12 +59,11 @@ jobs:
             git fetch origin
             git reset --hard origin/main
 
+            # Keep runtime dependencies in sync. The heavy Next.js build runs on GitHub.
             pnpm install --frozen-lockfile
 
-            # Build into a separate dir so the running site keeps its assets
-            # if the build fails; swap it in only after a successful build.
             rm -rf .next-new
-            NEXT_DIST_DIR=.next-new pnpm build
+            tar -xzf /tmp/olnoomarketing-build.tgz -C .
 
             rm -rf .next-old
             if [ -d .next ]; then mv .next .next-old; fi
@@ -39,6 +71,7 @@ jobs:
 
             systemctl restart olnoomarketing
             rm -rf .next-old
+            rm -f /tmp/olnoomarketing-build.tgz
 
       - name: Check site and static assets
         run: |
