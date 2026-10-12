@@ -1,18 +1,21 @@
 import { Reveal } from './reveal'
 
-/** Each direction carries an anchor so other pages can link straight to it. */
+/**
+ * Directions 01–06, closing the Система page. Each carries an anchor so other pages
+ * can link straight to it (ids must not clash with the page's own sections).
+ */
 const directions = [
   { id: 'strategy', title: 'Стратегия и позиционирование' },
   { id: 'branding', title: 'Брендинг и упаковка проекта' },
   { id: 'digital-infrastructure', title: 'Сайт и digital-инфраструктура' },
-  { id: 'promotion', title: 'Продвижение и привлечение клиентов' },
+  { id: 'client-acquisition', title: 'Продвижение и привлечение клиентов' },
   { id: 'content', title: 'Контент и визуальные коммуникации' },
   { id: 'sales', title: 'Система продаж' },
 ]
 
 export function ServicesList() {
   return (
-    <section id="services-list" className="mx-auto max-w-[1400px] px-5 pb-24 md:px-10 md:pb-32">
+    <section id="services-list" className="mx-auto max-w-[1400px] px-5 pb-24 pt-20 md:px-10 md:pb-32 md:pt-28">
       <ol className="border-t border-border">
         {directions.map(({ id, title }, i) => (
           <li key={id} id={id} className="scroll-mt-24">

@@ -1,7 +1,6 @@
 import type { Metadata } from 'next'
 import { SiteHeader } from '@/components/site-header'
 import { PageEyebrow } from '@/components/page-eyebrow'
-import { ServicesList } from '@/components/services-list'
 import { ServicesPackages } from '@/components/services-packages'
 import { SiteFooter } from '@/components/site-footer'
 
@@ -33,7 +32,6 @@ export default function ServicesPage() {
         </section>
 
         <ServicesPackages />
-        <ServicesList />
       </main>
       <SiteFooter />
     </>

@@ -3,6 +3,7 @@ import { SiteHeader } from '@/components/site-header'
 import { PageEyebrow } from '@/components/page-eyebrow'
 import { Digital } from '@/components/digital'
 import { Promotion } from '@/components/promotion'
+import { ServicesList } from '@/components/services-list'
 import { SiteFooter } from '@/components/site-footer'
 
 export const metadata: Metadata = {
@@ -32,6 +33,7 @@ export default function SystemPage() {
 
         <Digital />
         <Promotion />
+        <ServicesList />
       </main>
       <SiteFooter />
     </>
