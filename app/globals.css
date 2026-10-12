@@ -310,6 +310,16 @@
     transform: none;
   }
 
+  /* Home hero film (components/hero.tsx): if iOS ever refuses autoplay (e.g. Low Power
+     Mode), hide its big native play button — the poster stays and the film starts on
+     the first touch or scroll instead. */
+  .hero-video::-webkit-media-controls,
+  .hero-video::-webkit-media-controls-start-playback-button,
+  .hero-video::-webkit-media-controls-overlay-play-button {
+    display: none !important;
+    -webkit-appearance: none;
+  }
+
   /* Home hero heading (components/hero.tsx), Geist Mono: every glyph is 0.6em,
      so a space is as wide as a letter. --hero-ws trims the word gaps and each
      line spreads that width back over its own glyphs. */
