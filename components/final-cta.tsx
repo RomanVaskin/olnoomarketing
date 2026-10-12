@@ -26,9 +26,9 @@ function TelegramIcon() {
   )
 }
 
-/** Neutral grey pill shared by both messenger buttons: 52/54px tall, dark icon + label centred. */
+/** Black pill shared by both messenger buttons: 52/54px tall, white icon + label centred. */
 const messengerBase =
-  'inline-flex h-[52px] items-center justify-center gap-2.5 rounded-full px-6 bg-[#E8E7E4] font-primary text-[15px] font-normal leading-none tracking-ui text-[#171717] transition-colors duration-300 hover:bg-[#DCDBD8] aria-disabled:cursor-default aria-disabled:hover:bg-[#E8E7E4] md:h-[54px] md:px-7 md:text-base'
+  'inline-flex h-[52px] items-center justify-center gap-2.5 rounded-full px-6 bg-foreground font-primary text-[15px] font-normal leading-none tracking-ui text-background transition-opacity duration-300 hover:opacity-90 aria-disabled:cursor-default aria-disabled:hover:opacity-100 md:h-[54px] md:px-7 md:text-base'
 
 /** Form field styles, tuned to stay crisp on the frosted panel. */
 const fieldLabel =
@@ -49,7 +49,7 @@ export function FinalCta() {
       style={CONTACT_BACKGROUND ? { backgroundImage: `url(${CONTACT_BACKGROUND})` } : undefined}
     >
       <div className="mx-auto max-w-[1400px] px-5 pb-24 pt-28 md:px-10 md:pb-32 md:pt-36">
-        <Reveal className="grid gap-14 md:grid-cols-2 md:gap-20">
+        <Reveal className="grid gap-14 md:grid-cols-2 md:items-end md:gap-20">
           <div>
             <PageEyebrow title="Контакты" />
             <h1 className="mt-6 max-w-5xl font-primary text-balance text-[length:min(calc((100vw_-_2.5rem)/15.5),24px)] font-light leading-[1.1] tracking-display text-[#161616] md:text-[length:min(calc((100vw_-_5rem)/16.5),34px)] lg:text-[length:clamp(34px,3.2vw,52px)]">
@@ -123,7 +123,7 @@ export function FinalCta() {
             </div>
             <button
               type="submit"
-              className="mt-2 w-full rounded-full bg-foreground px-6 py-4 text-sm font-normal tracking-ui text-background transition-opacity hover:opacity-90 sm:w-auto sm:self-start sm:px-10"
+              className="mt-2 h-[52px] w-full rounded-full bg-foreground px-6 text-sm font-normal tracking-ui text-background transition-opacity hover:opacity-90 sm:w-auto sm:self-start sm:px-10 md:h-[54px]"
             >
               Отправить заявку
             </button>

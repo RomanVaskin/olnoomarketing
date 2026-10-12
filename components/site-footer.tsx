@@ -1,5 +1,5 @@
 import { Logo } from './logo'
-import { PROJECTS_ENABLED, disabledNavClass } from '@/lib/sections'
+import { PROJECTS_ENABLED } from '@/lib/sections'
 
 export function SiteFooter() {
   return (
@@ -16,14 +16,10 @@ export function SiteFooter() {
             <a href="/#services" className="text-sm text-muted-foreground transition-colors hover:text-foreground">
               Услуги
             </a>
-            {PROJECTS_ENABLED ? (
+            {PROJECTS_ENABLED && (
               <a href="/projects" className="text-sm text-muted-foreground transition-colors hover:text-foreground">
                 Проекты
               </a>
-            ) : (
-              <span aria-disabled="true" className={`text-sm ${disabledNavClass}`}>
-                Проекты
-              </span>
             )}
             <a href="/contact" className="text-sm text-muted-foreground transition-colors hover:text-foreground">
               Контакты

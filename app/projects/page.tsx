@@ -1,4 +1,6 @@
 import type { Metadata } from 'next'
+import { notFound } from 'next/navigation'
+import { PROJECTS_ENABLED } from '@/lib/sections'
 import { SiteHeader } from '@/components/site-header'
 import { PageEyebrow } from '@/components/page-eyebrow'
 import { Projects } from '@/components/projects'
@@ -12,6 +14,9 @@ export const metadata: Metadata = {
 }
 
 export default function ProjectsPage() {
+  // hidden for now — see lib/sections.ts
+  if (!PROJECTS_ENABLED) notFound()
+
   return (
     <>
       <SiteHeader />
