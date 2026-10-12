@@ -14,7 +14,7 @@ const images = [
   {
     src: '/-11.png',
     caption: 'Уникальный Estate\u2011CRM',
-    href: '/services#digital-infrastructure',
+    href: '/system#digital',
     // onyx: keep the crossing veins on the left in frame
     className: 'object-[25%_50%]',
   },
@@ -27,7 +27,7 @@ const images = [
   {
     src: '/IMG_6154.JPG',
     caption: 'SEO / SMM / Digital',
-    href: '/services#promotion',
+    href: '/system#promotion',
     className: 'object-center',
   },
   {
