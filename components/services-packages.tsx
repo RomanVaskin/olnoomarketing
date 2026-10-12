@@ -1,6 +1,8 @@
+import Link from 'next/link'
 import { Reveal } from './reveal'
 import { BrokerageInfographics } from './brokerage-infographics'
 import { FocusCard } from './focus-card'
+import { ctaButtonClass } from './services-cta'
 
 const packages = [
   {
@@ -124,6 +126,13 @@ export function ServicesPackages() {
       ))}
 
       <BrokerageInfographics />
+
+      {/* same black pill as the site's other CTAs */}
+      <div className="mt-14 flex justify-center md:mt-16">
+        <Link href="/contact" className={ctaButtonClass}>
+          Связаться с нами
+        </Link>
+      </div>
     </section>
   )
 }
