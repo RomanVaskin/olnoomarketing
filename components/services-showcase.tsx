@@ -4,8 +4,8 @@ import { ServicesPreview } from './services-preview'
 import { PROJECTS_ENABLED } from '@/lib/sections'
 
 /**
- * Услуги → four images → Кейсы, between the 'Кто мы' rule above and this block's
- * own rule below. One flex column: equal outer padding and equal inner gaps
+ * Услуги → four images → Кейсы (the last only while PROJECTS_ENABLED), between the
+ * 'Кто мы' rule above and this block's own rule below. One flex column: equal outer padding and equal inner gaps
  * (76 / 52px from tablet up, 56 / 36px on mobile).
  */
 export function ServicesShowcase() {
@@ -16,15 +16,10 @@ export function ServicesShowcase() {
           Услуги
         </Link>
         <ServicesPreview />
-        {PROJECTS_ENABLED ? (
+        {PROJECTS_ENABLED && (
           <Link href="/projects" className={ctaButtonClass}>
             Кейсы
           </Link>
-        ) : (
-          // same pill, but inert while the Проекты page is closed (lib/sections.ts)
-          <span aria-disabled="true" className={`${ctaButtonClass} cursor-default select-none hover:opacity-100`}>
-            Кейсы
-          </span>
         )}
       </div>
     </div>

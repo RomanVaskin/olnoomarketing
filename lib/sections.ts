@@ -1,9 +1,6 @@
 /**
- * The Проекты page (app/projects) is temporarily closed. While this is false, every
- * link to it — header, mobile menu, footer and the home «Кейсы» button — renders as
- * plain inactive text. Set it to true to bring all of them back; the page itself is untouched.
+ * The Проекты section (app/projects) is hidden for now. While this is false, every link
+ * to it — header, mobile menu, footer and the home «Кейсы» button — is left out, the page
+ * answers 404 and it is dropped from the sitemap. Set it to true to bring it all back.
  */
 export const PROJECTS_ENABLED = false
-
-/** Grey for a temporarily inactive navigation item. */
-export const disabledNavClass = 'cursor-default select-none text-[#A5A5A5]'
