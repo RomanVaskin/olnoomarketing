@@ -1,6 +1,6 @@
 'use client'
 
-import { useEffect, useState } from 'react'
+import { useEffect, useRef, useState } from 'react'
 import { useParallax } from '@/lib/use-parallax'
 
 /** Phones get their own portrait film (720×1188); md+ keeps the 16:9 original. */
@@ -12,6 +12,42 @@ export function Hero() {
   const [poster, setPoster] = useState('/hero-video-poster.jpg')
   useEffect(() => {
     if (window.matchMedia(MOBILE_QUERY).matches) setPoster('/hero-video-vertical-poster.jpg')
+  }, [])
+
+  // Make sure the film starts by itself on phones, with no play button:
+  // — React sets `muted` only as a property, so the server HTML lacks the attribute
+  //   iOS Safari checks before allowing autoplay; set both explicitly;
+  // — call play() ourselves once data is ready, and again when the tab returns;
+  // — if the browser still refuses (e.g. iPhone Low Power Mode), start on the
+  //   visitor's first touch or scroll anywhere on the page.
+  const videoRef = useRef<HTMLVideoElement | null>(null)
+  useEffect(() => {
+    const video = videoRef.current
+    if (!video) return
+    video.muted = true
+    video.defaultMuted = true
+    video.setAttribute('muted', '')
+    video.setAttribute('playsinline', '')
+
+    const tryPlay = () => {
+      if (video.paused) video.play().catch(() => {})
+    }
+    const onVisible = () => {
+      if (document.visibilityState === 'visible') tryPlay()
+    }
+    const gestures = ['touchstart', 'pointerdown', 'scroll'] as const
+
+    tryPlay()
+    video.addEventListener('loadeddata', tryPlay)
+    video.addEventListener('canplay', tryPlay)
+    document.addEventListener('visibilitychange', onVisible)
+    gestures.forEach((g) => window.addEventListener(g, tryPlay, { passive: true }))
+    return () => {
+      video.removeEventListener('loadeddata', tryPlay)
+      video.removeEventListener('canplay', tryPlay)
+      document.removeEventListener('visibilitychange', onVisible)
+      gestures.forEach((g) => window.removeEventListener(g, tryPlay))
+    }
   }, [])
 
   return (
@@ -28,6 +64,7 @@ export function Hero() {
               public/copy_9F5ED8E6-0397-4307-B802-D5D3F375F3F4.mov (HEVC .mov does not
               play in Chrome / Android), shown whole at its own ratio on phones */}
           <video
+            ref={videoRef}
             poster={poster}
             autoPlay
             muted
@@ -35,7 +72,7 @@ export function Hero() {
             playsInline
             preload="auto"
             aria-label="AURE AGENCY — логотип на фактурной каменной стене"
-            className="block h-full w-full max-w-none object-cover md:origin-[35%_50%] md:scale-[1.085] lg:scale-[1.065]"
+            className="hero-video block h-full w-full max-w-none object-cover md:origin-[35%_50%] md:scale-[1.085] lg:scale-[1.065]"
           >
             <source src="/hero-video-vertical.mp4" type="video/mp4" media={MOBILE_QUERY} />
             <source src="/hero-video.mp4" type="video/mp4" />
