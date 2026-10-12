@@ -3,7 +3,7 @@
 import { useEffect, useState } from 'react'
 import { useParallax } from '@/lib/use-parallax'
 
-/** Phones get a 4:5 portrait cut of the hero film; md+ keeps the 16:9 original. */
+/** Phones get their own portrait film (720×1188); md+ keeps the 16:9 original. */
 const MOBILE_QUERY = '(max-width: 767px)'
 
 export function Hero() {
@@ -16,7 +16,7 @@ export function Hero() {
 
   return (
     <section id="top" className="pt-16">
-      <div className="relative aspect-[4/5] w-full overflow-hidden md:aspect-auto md:h-[min(56.25vw,70vh)] lg:h-[min(clamp(650px,75vh,900px),56vw)]">
+      <div className="relative aspect-[720/1188] w-full overflow-hidden md:aspect-auto md:h-[min(56.25vw,70vh)] lg:h-[min(clamp(650px,75vh,900px),56vw)]">
         <div className="fade-up absolute inset-x-0 top-[clamp(20px,3.3vw,48px)] z-[2] mx-auto max-w-[1400px] px-5 md:px-10">
           <p className="font-primary min-[360px]:whitespace-nowrap text-[12px] font-normal uppercase leading-none tracking-[0.18em] text-[rgba(55,55,55,0.82)] md:text-[13px] md:tracking-label lg:text-[15px]">
             AURE AGENCY / Real Estate Marketing
@@ -24,8 +24,9 @@ export function Hero() {
         </div>
 
         <div ref={parallaxRef} className="h-full">
-          {/* hero-video-vertical.mp4 is the same film recomposed to 4:5: the full-width
-              logo stays whole and the stone wall is extended above and below it */}
+          {/* hero-video-vertical.mp4: H.264 copy of the portrait film
+              public/copy_9F5ED8E6-0397-4307-B802-D5D3F375F3F4.mov (HEVC .mov does not
+              play in Chrome / Android), shown whole at its own ratio on phones */}
           <video
             poster={poster}
             autoPlay
